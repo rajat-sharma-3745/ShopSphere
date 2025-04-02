@@ -19,7 +19,7 @@ function Login() {
 
   //Get redirect parameter and check if its checkout or something
   const redirect = new URLSearchParams(location.search).get('redirect') || "/"  // location.search means the query string
-  const isCheckoutRedirect = redirect.includes('/checkout');
+  const isCheckoutRedirect = redirect.includes('checkout');
 
 
   useEffect(()=>{
