@@ -58,7 +58,7 @@ function OrderManagement() {
                     orders.map((order)=>(
                         <tr key={order._id} className='border-b hover:bg-gray-50 cursor-pointer'>
                             <td className="px-4 py-4 font-medium whitespace-nowrap text-gray-900">#{order._id}</td>
-                            <td className="p-4">{order.user.name} </td>
+                            <td className="p-4 text-nowrap">{order.user.name} </td>
                             <td className="p-4">${order.totalPrice.toFixed(2)} </td>
                             <td className="p-4">
                                 <select name="" id="" value={order.status} onChange={(e)=>handleStatusChange(order._id,e.target.value)} className="bg-gray-50 border-gray-300 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">

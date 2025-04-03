@@ -7,57 +7,6 @@ import { fetchProductDetails, fetchSimilarProducts } from '../../redux/slice/pro
 import { addToCart } from '../../redux/slice/cartSlice';
 import ProductDetailsShimmer from './ProductDetailsShimmer';
 
-// const selectedProduct = {
-//     name: "Stylish Jacket",
-//     price: 120,
-//     originalPrice: 150,
-//     description: "This is a stylish Jacket perfect for any occasion",
-//     brand: "FashionBrand",
-//     material: "Leather",
-//     sizes: ["S", "M", "L", "XL"],
-//     colors: ["Red", "Black"],
-//     images: [
-//       {
-//         url: "https://picsum.photos/500/500?random=1",
-//         altText: "Stylish Jacket 1",
-//       },
-//       {
-//         url: "https://picsum.photos/500/500?random=2",
-//         altText: "Stylish Jacket 2",
-//       },
-//     ],
-//   };
-
-//   const similarProducts = [
-//     {
-//       _id: 1,
-//       name: "Product 1",
-//       price: 100,
-//       images: [{ url: "https://picsum.photos/500/500?random=1" }],
-//     },
-//     {
-//       _id: 2,
-//       name: "Product 2",
-//       price: 100,
-//       images: [{ url: "https://picsum.photos/500/500?random=2" }],
-//     },
-//     {
-//       _id: 3,
-//       name: "Product 3",
-//       price: 100,
-//       images: [{ url: "https://picsum.photos/500/500?random=3" }],
-//     },
-//     {
-//       _id: 4,
-//       name: "Product 4",
-//       price: 100,
-//       images: [{ url: "https://picsum.photos/500/500?random=4" }],
-//     },
-//   ];
-  
-
-  
-  
 
 function ProductDetails({productId}) {
     const {id}= useParams();
@@ -124,9 +73,9 @@ function ProductDetails({productId}) {
         <p>Error: {error}</p>
     }
   return (
-    <div className='p-6'>
+    <div className='sm:p-6'>
         {selectedProduct &&  (
-        <div className='max-w-6xl mx-auto bg-white p-8 rounded-lg'>
+        <div className='max-w-6xl mx-auto bg-white sm:p-8 p-6 rounded-lg'>
             <div className='flex flex-col md:flex-row'>
                 {/* left thumbnail */}
                 <div className='hidden md:flex flex-col space-y-4 mr-6'>
@@ -139,7 +88,7 @@ function ProductDetails({productId}) {
                 {/* Main image */}
                 <div className="md:w-1/2">
                    <div className='mb-4'>
-                    <img src={mainImg || selectedProduct.images[0].url} alt="Main Product" className='w-full h-auto object-cover rounded-lg' />
+                    <img src={mainImg || selectedProduct.images[0].url} alt="Main Product" className='w-full h-auto object-cover rounded-lg border border-orange-400 shadow-md' />
                    </div>
                 </div>
                 {/* Mobile Thumbnail */}

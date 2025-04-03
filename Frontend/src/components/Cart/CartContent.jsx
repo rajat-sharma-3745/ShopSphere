@@ -64,7 +64,7 @@ function CartContent({cart,userId,guestId}) {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className='flex flex-col items-center justify-center'>
                         <p>$ {product.price.toLocaleString()}</p>
                          {/* Delete */}
                         <button className='cursor-pointer' onClick={()=>handleRemoveFromCart(product.productId,product.size,product.color,guestId,userId)}>
