@@ -26,7 +26,7 @@ function ProductGrid({ products, loading, error }) {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {products.map((product, index) => (
         <Link key={index} to={`/product/${product._id}`} className="block">
-          <div className="bg-white p-4 rounded-lg">
+          <div className="bg-white p-4 rounded-lg border border-gray-300">
             <div className="w-full h-96 mb-4">
               <img
                 src={product.images[0].url}
@@ -34,10 +34,12 @@ function ProductGrid({ products, loading, error }) {
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
-            <h3 className="text-sm mb-2">{product.name}</h3>
+            <div className="flex items-center justify-between">
+            <h3 className="text-sm ">{product.name}</h3>
             <p className="text-sm tracking-tighter font-medium text-gray-500">
-              $ {product.price}
+              ${product.price}
             </p>
+            </div>
           </div>
         </Link>
       ))}

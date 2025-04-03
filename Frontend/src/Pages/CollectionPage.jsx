@@ -96,16 +96,24 @@ function CollectionPage() {
   return (
     <div className='flex flex-col lg:flex-row'>
         {/* Mobile filter button */}
-        <button onClick={toggleSidebar} className='lg:hidden border flex justify-center items-center p-2'>
-            <FaFilter className='mr-2 '/>
-        </button>
+        
 
         {/* Filter sidebar */}
         <div ref={sidebarRef} className={`${isSidebarOpen?'translate-x-0':'-translate-x-full'} fixed inset-y-0 left-0 z-50 w-64 overflow-y-auto bg-white transition-transform duration-300 lg:shadow-md lg:static lg:translate-x-0`}>
-            <FilterSidebar/>
+            <FilterSidebar close={toggleSidebar}/>
         </div>
+        {/* overlay */}
+        {isSidebarOpen&&  (
+          <div className='fixed inset-0 w-full h-full bg-black/9 '></div>
+        )}
+        {/* Right part */}
         <div className='grow p-4'>
-            <h2 className='text-2xl  font-semibold uppercase'>All Collections</h2>
+          <div className='flex items-center justify-between mb-2'>
+              <h2 className='sm:text-2xl text-xl font-semibold uppercase'>All Collections</h2>
+              <button onClick={toggleSidebar} className='lg:hidden border border-gray-400 flex p-2 rounded-sm'>
+              <FaFilter className=' '/>
+              </button>
+          </div>
             {/* sort  */}
             <SortOptions/>
 

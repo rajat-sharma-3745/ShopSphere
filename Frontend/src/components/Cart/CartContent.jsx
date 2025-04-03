@@ -49,7 +49,7 @@ function CartContent({cart,userId,guestId}) {
     <div>
         {
             cart.products.map((product,index)=>(
-                <div key={index} className='flex items-start justify-between py-4'>
+                <div key={index} className='hidden sm:flex items-start justify-between py-4'>
                     <div className='flex items-start'>
                         <img src={product.image} alt={product.name} className='w-20 h-24 object-cover mr-4 rounded' />
                         <div>
@@ -74,6 +74,38 @@ function CartContent({cart,userId,guestId}) {
                 </div>
             ))
         }
+        {/* Mobile */}
+        {
+            cart.products.map((product,index)=>(
+                <div key={index} className='sm:hidden flex flex-col space-y-2 mb-3 pb-2 border-b border-b-gray-300'>
+                    <div className='flex items-center'>
+                        <img src={product.image} alt={product.name} className='w-13 h-13 object-cover mr-2 rounded' />
+                        <div className='flex-1 '>
+                            <h3 className='text-sm'>{product.name}</h3>
+                            <p className='text-xs text-gray-500'>
+                                size: {product.size} | color: {product.color}
+                            </p>
+                        </div>
+                    </div>
+                    <div className='flex items-center justify-between'>
+                        <div className='flex items-center'>
+                            <button onClick={()=>handleAddToCart(product.productId,-1,product.quantity,product.color,product.size)} className='border border-gray-400 rounded px-2 text-sm  cursor-pointer'>-</button>
+                            <span className='mx-3 text-sm'>{product.quantity}</span>
+                            <button onClick={()=>handleAddToCart(product.productId,1,product.quantity,product.color,product.size)} className='border border-gray-400 rounded px-2  text-sm  cursor-pointer'>+</button>
+                        </div>
+                        <div className='flex items-center space-x-1'>
+                        <p className='text-sm'>$ {product.price.toLocaleString()}</p>
+                         {/* Delete */}
+                        <button className='cursor-pointer' onClick={()=>handleRemoveFromCart(product.productId,product.size,product.color,guestId,userId)}>
+                            <RiDeleteBin3Line className='w-4 h-4  text-red-600'/>
+                        </button>  
+                        </div> 
+                    </div>
+                </div>
+            ))
+        }
+
+
     </div>
   )
 }

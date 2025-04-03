@@ -58,7 +58,7 @@ function ProductManagement() {
                                 </td>
                                 <td className='p-4'>{product.price}</td>
                                 <td className='p-4'>{product.sku}</td>
-                                <td className='p-4'>
+                                <td className='p-4 flex'>
                                     <Link to={`/admin/products/${product._id}/edit`} className='bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 rounded mr-2 cursor-pointer'>Edit</Link>
                                     <button onClick={()=>handleDelete(product._id)} className='bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 cursor-pointer'>Delete</button>
                                 </td>

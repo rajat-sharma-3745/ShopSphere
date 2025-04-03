@@ -12,7 +12,7 @@ function SortOptions() {
     setSearchParams(searchParams)
   }
   return (
-    <div className='mb-4 flex justify-end items-center'>
+    <div className='mb-3 flex justify-end items-center'>
       <select name="" id="sort" value={searchParams.get('sortBy')||""}  onChange={handleSortChange} className='border p-2 rounded-md focus:outline-none'>
         <option value="">Default</option>
         <option value="priceAsc">Price: Low to High</option>

@@ -9,7 +9,7 @@ function GenderCollectionSection() {
         <div className='container mx-auto flex flex-col md:flex-row gap-8'>
             {/* Womens collection */}
             <div className='relative flex-1'>
-               <img src={womenCollectionImage} alt="Women Collections" className='rounded-xl w-full h-[700px] object-cover' />
+               <img src={womenCollectionImage} alt="Women Collections" className='rounded-xl w-full md:h-[700px] object-cover' />
                <div className='absolute bottom-8 left-8 bg-white/90 p-4'>
                     <h2 className='text-2xl font-bold text-gray-900 mb-3'>
                         Women's Collection
@@ -20,7 +20,7 @@ function GenderCollectionSection() {
             </div>
             {/* Mens Collection */}
             <div className='relative flex-1'>
-               <img src={mensCollectionImage} alt="Men Collections" className='rounded-xl w-full h-[700px] object-cover' />
+               <img src={mensCollectionImage} alt="Men Collections" className='rounded-xl w-full md:h-[700px] object-cover' />
                <div className='absolute bottom-8 left-8 bg-white/90 p-4'>
                     <h2 className='text-2xl font-bold text-gray-900 mb-3'>
                         Men's Collection

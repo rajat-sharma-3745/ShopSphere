@@ -137,7 +137,7 @@ function EditProductPage() {
         {/* Image Upload */}
         <div className="mb-6">
             <label htmlFor="" className="block font-semibold mb-2">Upload Image</label>
-            <input type="file" onChange={handleImageUpload} className="bg-gray-300  rounded-md px-3 py-1 "  />
+            <input type="file" onChange={handleImageUpload} className="bg-gray-300 w-full py-1 rounded px-1"  />
             {uploading && <p>Uploading image...</p> }
             <div className="flex gap-4 mt-4 ">
                 {productData.images.map((image,index)=>(
