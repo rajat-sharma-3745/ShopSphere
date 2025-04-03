@@ -82,11 +82,11 @@ useEffect(()=>{
 
   }
   return (
-    <div className='max-w-7xl mx-auto p-6'>
+    <div className='max-w-7xl mx-auto sm:p-3 p-1'>
         <h2 className='text-2xl font-bold mb-6'>User Management</h2>
         
         {/* Add new user form */}
-        <div className='p-6 mb-6 rounded-lg'>
+        <div className='sm:p-4  mb-6 rounded-lg'>
             <h3 className='text-lg font-bold mb-4'>Add new user</h3>
             <form onSubmit={handleSubmit} action="">
                 <div className='mb-4'>

@@ -40,7 +40,7 @@ function OrderManagement() {
   if (error) return <p>Error: {error}</p>;
 
 
-  return <div className="max-w-7xl mx-auto p-6">
+  return <div className="max-w-7xl mx-auto p-2">
     <h2 className="text-2xl font-bold mb-6 ">Order Management</h2>
     <div className="overflow-x-auto shadow-md sm:rounded-lg">
         <table className='min-w-full text-left text-gray-500'>
@@ -68,7 +68,7 @@ function OrderManagement() {
                                     <option value="Cancelled">Cancelled</option>
                                 </select>
                             </td>
-                            <td className="p-4">
+                            <td className="p-4 text-nowrap">
                                 <button onClick={()=>handleStatusChange(order._id,"Delivered")} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 cursor-pointer">Mark as Delivered</button>
                             </td>
                         </tr>

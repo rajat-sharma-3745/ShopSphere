@@ -40,15 +40,15 @@ function Register() {
   }
   return (
     <div className='flex'>
-        <div className='w-full md:w-1/2 flex flex-col justify-center items-center p-8 md:p-12'>
-            <form onSubmit={handleSubmit} className='w-full max-w-md bg-white p-8 rounded-lg border shadow-sm'>
-                <div className='flex justify-center mb-6'>
-                    <h2 className='text-xl font-medium'>Rabbit</h2>
+        <div className='w-full md:w-1/2 flex flex-col justify-center items-center p-6 md:p-12'>
+            <form onSubmit={handleSubmit} className='w-full max-w-md bg-white p-4 rounded-lg border shadow-sm'>
+                <div className='flex justify-center sm:mb-6 mb-2'>
+                    <h2 className='text-xl font-medium'>ShopSphere</h2>
                 </div>
-                <h2 className='text-2xl font-bold text-center mb-6'>Hey there! 👋</h2>
-                <p className='text-center mb-6'>
+                <h2 className='text-2xl font-bold text-center sm:mb-6 mb-2'>Hey there! 👋</h2>
+                {/* <p className='text-center sm:mb-6 mb-2'>
                     Enter your username and password to login
-                </p>
+                </p> */}
                 <div className='mb-4'>
                     <label htmlFor="" className='block text-sm font-semibold mb-2'>Name</label>
                     <input type="text" value={name} onChange={(e)=>setName(e.target.value)} placeholder='Enter your name' className='w-full p-2 border rounded'/>

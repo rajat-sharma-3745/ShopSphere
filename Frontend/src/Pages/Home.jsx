@@ -90,7 +90,7 @@ function Home() {
         <NewArrivals/>
 
         {/* Best sellers Section */}
-        <h2 className='text-3xl text-center font-bold mb-4'>Best Seller</h2>
+        <h2 className='text-3xl text-center font-bold sm:mb-4'>Best Seller</h2>
         {bestSellerProduct ? ( <ProductDetails productId={bestSellerProduct._id}/> ) : (
 
           <p className='text-center'>Loading best seller product</p>

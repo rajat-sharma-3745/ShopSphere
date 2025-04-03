@@ -37,8 +37,8 @@ function ProductManagement() {
   if (error) return <p>Error: {error}</p>;
       
   return (
-    <div className='max-w-7xl mx-auto p-6'>
-        <h2 className='text-2xl font-bold mb-6'>Product Management</h2>
+    <div className='max-w-7xl mx-auto p-3'>
+        <h2 className='text-2xl font-bold mb-5'>Product Management</h2>
         <div className='overflow-x-auto shadow-md sm:rounded-lg'>
             <table className='min-w-full text-left text-gray-500'>
                 <thead className='bg-gray-100 text-gray-700 text-xs uppercase'>
@@ -57,7 +57,7 @@ function ProductManagement() {
                                     {product.name}
                                 </td>
                                 <td className='p-4'>{product.price}</td>
-                                <td className='p-4'>{product.sku}</td>
+                                <td className='p-4 text-nowrap'>{product.sku}</td>
                                 <td className='p-4 flex'>
                                     <Link to={`/admin/products/${product._id}/edit`} className='bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 rounded mr-2 cursor-pointer'>Edit</Link>
                                     <button onClick={()=>handleDelete(product._id)} className='bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 cursor-pointer'>Delete</button>

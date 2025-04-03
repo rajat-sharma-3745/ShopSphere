@@ -192,9 +192,9 @@ function ProductDetails({productId}) {
 
                         </div>
                     </div> 
-                    <button onClick={handleAddToCart} disabled={isButtonDisabled} className={`bg-black text-white py-2 px-6 rounded w-full mb-4 ${isButtonDisabled?'cursor-not-allowed bg-black/50':'hover:bg-gray-900'}`}>{isButtonDisabled?"Adding...":"ADD TO CART"}</button>
+                    <button onClick={handleAddToCart} disabled={isButtonDisabled} className={`bg-black text-white py-2 px-6 rounded w-full sm:mb-4 ${isButtonDisabled?'cursor-not-allowed bg-black/50':'hover:bg-gray-900'}`}>{isButtonDisabled?"Adding...":"ADD TO CART"}</button>
                     <div className='mt-10 text-gray-700'>
-                        <h3 className='text-xl font-bold mb-4'>Characteristics:</h3>
+                        <h3 className='text-xl font-bold sm:mb-4 mb-2'>Characteristics:</h3>
                         <table className='w-full text-left text-sm text-gray-600'>
                             <tbody>
                                 <tr>
@@ -211,7 +211,7 @@ function ProductDetails({productId}) {
                 </div>
             </div>
 
-            <div className='mt-20'>
+            <div className='sm:mt-20 mt-8'>
                 <h2 className='text-2xl text-center font-medium mb-4'>You May Also Like</h2>
                 <ProductGrid products={similarProducts} loading={loading} error={error}/>
             </div>

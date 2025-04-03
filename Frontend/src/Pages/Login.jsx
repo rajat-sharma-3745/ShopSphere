@@ -51,13 +51,13 @@ function Login() {
   }
   return (
     <div className='flex'>
-        <div className='w-full md:w-1/2 flex flex-col justify-center items-center p-8 md:p-12'>
-            <form onSubmit={handleSubmit} className='w-full max-w-md bg-white p-8 rounded-lg border shadow-sm'>
-                <div className='flex justify-center mb-6'>
-                    <h2 className='text-xl font-medium'>Rabbit</h2>
+        <div className='w-full md:w-1/2 flex flex-col justify-center items-center p-6 md:p-12'>
+            <form onSubmit={handleSubmit} className='w-full max-w-md bg-white p-6 rounded-lg border shadow-sm'>
+                <div className='flex justify-center sm:mb-6 mb-3'>
+                    <h2 className='text-xl font-medium'>ShopSphere</h2>
                 </div>
-                <h2 className='text-2xl font-bold text-center mb-6'>Hey there! 👋</h2>
-                <p className='text-center mb-6'>
+                <h2 className='text-2xl font-bold text-center sm:mb-6 mb-2'>Hey there! 👋</h2>
+                <p className='text-center sm:mb-6 mb-3'>
                     Enter your username and password to login
                 </p>
                 <div className='mb-4'>
@@ -68,7 +68,7 @@ function Login() {
                     <label htmlFor="" className='block text-sm font-semibold mb-2'>Password</label>
                     <div className='relative'>
                     <input type={showPassword?"text":"password"} value={password} onChange={(e)=>setPassword(e.target.value)}  className='w-full p-2 border rounded ' placeholder='Enter your password'/>
-                    <button type='button' onClick={()=>setShowPassword(p=>!p)} className='absolute right-2 top-2.5 text-black'> {!showPassword ? <AiOutlineEye  size={25}/> :<AiOutlineEyeInvisible  size={25}/>} </button> </div>
+                    <button type='button' onClick={()=>setShowPassword(p=>!p)} className='absolute right-2 top-2 text-black'> {!showPassword ? <AiOutlineEye  size={25}/> :<AiOutlineEyeInvisible  size={25}/>} </button> </div>
                 </div>
                 <button type='submit' className='w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800 transition'>{isLoading?"Signing in...":"Sign In"}</button>
                 <p className='mt-6 text-center text-sm'>Don't have an account?{" "}<Link to={`/register?redirect=${encodeURIComponent(redirect)}`} className='text-blue-500' >Register</Link></p>
