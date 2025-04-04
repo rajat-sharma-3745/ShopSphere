@@ -114,7 +114,7 @@ function NewArrivals() {
                 newArrivals.map((product)=>(
                     <div key={product._id} className='min-w-[100%] sm:min-w-[50%] lg:min-w-[30%] relative'>
                         <img src={product.images[0]?.url} draggable="false" alt={product.images[0]?.altText || product.name} className='w-full h-[500px] rounded-lg object-cover'/>
-                        <div className='absolute bottom-0 left-0 right-0 bg-gray/10 backdrop-blur-md text-white p-4 rounded-b-lg'>
+                        <div className='absolute bottom-0 left-0 right-0 backdrop-blur-xl text-white p-4 rounded-b-lg'>
                           <Link to={`/product/${product._id}`} className='block '>
                               <h4 className='font-medium'>{product.name}</h4>
                               <p className='mt-1'>$ {product.price}</p>
