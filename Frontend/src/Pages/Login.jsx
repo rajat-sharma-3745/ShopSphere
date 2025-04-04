@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../assets/login.webp'
+import login2 from '../assets/login2.jpg'
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser} from '../redux/slice/authSlice'
 import { mergeCart } from '../redux/slice/cartSlice';
@@ -52,7 +53,7 @@ function Login() {
   return (
     <div className='flex'>
         <div className='w-full md:w-1/2 flex flex-col justify-center items-center p-6 md:p-12'>
-            <form onSubmit={handleSubmit} className='w-full max-w-md bg-white p-6 rounded-lg border shadow-sm'>
+            <form onSubmit={handleSubmit} className='w-full max-w-md bg-white p-6 rounded-lg border border-gray-300 shadow-xl'>
                 <div className='flex justify-center sm:mb-6 mb-3'>
                     <h2 className='text-xl font-medium'>ShopSphere</h2>
                 </div>
@@ -62,12 +63,12 @@ function Login() {
                 </p>
                 <div className='mb-4'>
                     <label htmlFor="" className='block text-sm font-semibold mb-2'>Email</label>
-                    <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='Enter your email address' className='w-full p-2 border rounded'/>
+                    <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='Enter your email address' className='w-full p-2 border border-gray-400 focus:border-2 focus:border-black focus:outline-none rounded'/>
                 </div>
                 <div className='mb-4'>
                     <label htmlFor="" className='block text-sm font-semibold mb-2'>Password</label>
                     <div className='relative'>
-                    <input type={showPassword?"text":"password"} value={password} onChange={(e)=>setPassword(e.target.value)}  className='w-full p-2 border rounded ' placeholder='Enter your password'/>
+                    <input type={showPassword?"text":"password"} value={password} onChange={(e)=>setPassword(e.target.value)}  className='w-full p-2 border rounded  border-gray-400 focus:border-2 focus:border-black focus:outline-none ' placeholder='Enter your password'/>
                     <button type='button' onClick={()=>setShowPassword(p=>!p)} className='absolute right-2 top-2 text-black'> {!showPassword ? <AiOutlineEye  size={25}/> :<AiOutlineEyeInvisible  size={25}/>} </button> </div>
                 </div>
                 <button type='submit' className='w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800 transition'>{isLoading?"Signing in...":"Sign In"}</button>
@@ -77,7 +78,7 @@ function Login() {
         </div>
         <div className='hidden md:block w-1/2 bg-gray-800 '>
             <div className='h-full flex flex-col justify-center items-center'>
-                <img src={login} alt="Login" className='h-[600px] w-full object-cover' />
+                <img src={login2} alt="Login" className='h-[600px] w-full object-cover object-top' />
             </div>
         </div>
     </div>
