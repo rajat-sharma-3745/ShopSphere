@@ -6,16 +6,7 @@ import { fetchAdminProducts } from "../redux/slice/adminProductSlice";
 import {BarLoader, PacmanLoader} from "react-spinners";
 
 function AdminHomePage() {
-  //   const orders=[
-  //     {
-  //         _id:123123,
-  //         user:{
-  //             name:"John Doe",
-  //         },
-  //         totalPrice:110,
-  //         status:"Processing",
-  //     },
-  //   ]
+
 
   const dispatch = useDispatch();
   const {
