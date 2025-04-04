@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import {FaFilter} from 'react-icons/fa'
 import FilterSidebar from '../components/Products/FilterSidebar';
-import SortOptions from '../components/Products/SortOptions';
+import SortOptions, { CustomSort } from '../components/Products/SortOptions';
 import ProductGrid from '../components/Products/ProductGrid';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -99,7 +99,7 @@ function CollectionPage() {
         
 
         {/* Filter sidebar */}
-        <div ref={sidebarRef} className={`${isSidebarOpen?'translate-x-0':'-translate-x-full'} fixed inset-y-0 left-0 z-50 w-64 overflow-y-auto bg-white transition-transform duration-300 lg:shadow-md lg:static lg:translate-x-0`}>
+        <div ref={sidebarRef} className={`${isSidebarOpen?'translate-x-0':'-translate-x-full'} fixed inset-y-0 left-0 z-50 w-64 overflow-y-auto bg-white transition-transform duration-300  lg:static lg:translate-x-0`}>
             <FilterSidebar close={toggleSidebar}/>
         </div>
         {/* overlay */}
@@ -107,15 +107,16 @@ function CollectionPage() {
           <div className='fixed inset-0 w-full h-full bg-black/9 '></div>
         )}
         {/* Right part */}
-        <div className='grow p-4'>
-          <div className='flex items-center justify-between mb-2'>
-              <h2 className='sm:text-2xl text-xl font-semibold uppercase'>All Collections</h2>
-              <button onClick={toggleSidebar} className='lg:hidden border border-gray-400 flex p-2 rounded-sm'>
+        <div className='grow p-4 '>
+          <div className='flex items-center justify-between mb-2 px-4'>
+              <h2 className='hidden md:block text-2xl font-bold'>All Collections</h2>
+              <button onClick={toggleSidebar} className='md:hidden border border-gray-400 flex p-2 rounded-sm'>
               <FaFilter className=' '/>
               </button>
+            <CustomSort/>
           </div>
             {/* sort  */}
-            <SortOptions/>
+            {/* <SortOptions/> */}
 
             {/* Product grid */}
             <ProductGrid products={products} loading={loading} error={error}/>
