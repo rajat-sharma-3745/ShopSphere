@@ -24,7 +24,7 @@ function Navbar() {
   }
   return (
     <>
-    <nav className='container mx-auto flex justify-between items-center py-4 md:px-6 px-1.5 '>
+    <nav className='container mx-auto flex justify-between items-center sm:py-4 py-2.5 md:px-6 px-1.5 '>
         {/* Left-logo */}
         <div>
           {/* <img src={Logo} className='w-25 h-12 object-cover' alt="" /> */}
