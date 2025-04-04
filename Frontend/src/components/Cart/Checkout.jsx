@@ -100,9 +100,9 @@ function Checkout() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto py-10 px-6 tracking-tighter">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto sm:py-10 py-5 sm:px-6 px-4 tracking-tighter">
       {/* Left section */}
-      <div className="bg-white rounded-lg p-6">
+      <div className="bg-white rounded-lg sm:p-6 p-1">
         <h2 className="text-2xl uppercase mb-6">Checkout</h2>
         <form action="" onSubmit={handleCreateCheckout}>
           <h3 className="text-lg mb-4">Contact Details</h3>
@@ -255,7 +255,7 @@ function Checkout() {
       {/* Right Section */}
       {loading?<CartShimmer/>:(
       <div className="bg-gray-50 p-6 rounded-lg">
-        <h3 className="text-lg mb-4">Order Summary</h3>
+        <h3 className="text-xl font-semibold mb-4">Order Summary</h3>
         <div className="border-t border-gray-500 mb-4 py-4">
           {cart.products.map((product, index) => (
             <div
@@ -266,15 +266,18 @@ function Checkout() {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-20 h-24 object-cover mr-4"
+                  className="sm:w-20 sm:h-24 w-15 h-15 rounded-md object-cover mr-4"
                 />
                 <div>
-                  <h3 className="text-lg">{product.name}</h3>
-                  <p className="text-gray-500 ">Size: {product.size}</p>
+                  <h3 className="sm:text-lg text-md">{product.name}</h3>
+                  <div className="flex flex-row space-x-2 flex-wrap ">
+                  <p className="text-gray-500  ">Size: {product.size}</p>
                   <p className="text-gray-500 ">Color: {product.color}</p>
+                  <p className="text-gray-500 ">Qty: {product.quantity}</p>
+                  </div>
                 </div>
               </div>
-              <p className="text-xl">${product.price?.toLocaleString()}</p>
+              <p className="sm:text-xl text-md font-medium">${product.price?.toLocaleString()}</p>
             </div>
           ))}
         </div>
