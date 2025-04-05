@@ -59,8 +59,8 @@ function OrderManagement() {
             <tbody>
                 {orders.length>0?(
                     orders.map((order)=>(
-                        <tr onClick={()=>handleRowClick(order._id)} key={order._id} className='border-b hover:bg-gray-50 cursor-pointer'>
-                            <td className="px-4 py-4 font-medium whitespace-nowrap text-gray-900">#{order._id}</td>
+                        <tr  key={order._id} className='border-b hover:bg-gray-50 cursor-pointer'>
+                            <td onClick={()=>handleRowClick(order._id)} className="px-4 py-4 font-medium whitespace-nowrap underline text-orange-500 ">#{order._id}</td>
                             <td className="p-4 text-nowrap">{order.user.name} </td>
                             <td className="p-4">${order.totalPrice.toFixed(2)} </td>
                             <td className="p-4">
