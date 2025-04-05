@@ -87,7 +87,7 @@ function MyOrderPage() {
                         orders.map((order)=>(
                             <tr onClick={()=>handleRowClick(order._id)} key={order._id} className='border-b hover:bg-gray-50 cursor-pointer'>
                                 <td className='py-2 px-2 sm:px-4 sm:py-4'>
-                                    <img src={order.orderItems[0].image} alt={order.orderItems[0].name} className='h-10 w-10 sm:h-12 sm:w-12 rounded-lg object-cover' />
+                                    <img src={order.orderItems[0].image} alt={order.orderItems[0].name} className='h-10 w-10 sm:h-12 sm:w-12 rounded-lg object-cover object-top' />
                                 </td>
                                 <td className='py-2 px-2 sm:py-4 sm:px-4 font-medium text-gray-900 whitespace-nowrap'>
                                     #{order._id}
