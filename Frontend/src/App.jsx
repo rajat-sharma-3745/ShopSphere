@@ -22,6 +22,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import ProtectedRoute from "./components/Common/ProtectedRoute";
 import { ScrollToTop } from "./components/Common/ScrollToTop";
+import AdminGetOrderDetails from "./components/Admin/AdminGetOrderDetails";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
             <Route path="users" element={<UserManagement />} />
             <Route path="products" element={<ProductManagement />} />
             <Route path="orders" element={<OrderManagement />} />
+            <Route path="order/:id" element={<AdminGetOrderDetails />} />
             <Route path="products/:id/edit" element={<EditProductPage />} />
           </Route>
         </Routes>

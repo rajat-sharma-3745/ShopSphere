@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchAllOrders } from "../redux/slice/adminOrderSlice";
 import { fetchAdminProducts } from "../redux/slice/adminProductSlice";
 import {BarLoader, PacmanLoader} from "react-spinners";
@@ -9,6 +9,7 @@ function AdminHomePage() {
 
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     products,
     loading: productsLoading,
@@ -26,6 +27,10 @@ function AdminHomePage() {
     dispatch(fetchAdminProducts());
     dispatch(fetchAllOrders());
   }, [dispatch]);
+
+  function handleRowClick(orderId){
+    navigate(`order/${orderId}`)
+ }
 
   return (
     <div className="max-w-7xl mx-auto sm:p-6 p-2">
@@ -79,7 +84,7 @@ function AdminHomePage() {
             <tbody>
               {orders.length > 0 ? (
                 orders.map((order) => (
-                  <tr
+                  <tr onClick={()=>handleRowClick(order._id)}
                     key={order._id}
                     className="border-b hover:bg-gray-50 cursor-pointer"
                   >

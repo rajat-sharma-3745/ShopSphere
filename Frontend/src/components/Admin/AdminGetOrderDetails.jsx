@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
-import { fetchOrderDetails } from '../redux/slice/orderSlice';
-import OrderDetailsShimmer from './OrderDetailsShimmer';
+import { fetchOrderDetails } from '../../redux/slice/orderSlice';
+import OrderDetailsShimmer from '../../Pages/OrderDetailsShimmer';
 
-function OrderDetails() {
+function AdminGetOrderDetails() {
   const {id} =useParams();
   const dispatch = useDispatch();
   const {orderDetails,loading,error} = useSelector((state)=>state.orders)
@@ -13,37 +13,7 @@ function OrderDetails() {
     },[dispatch,id]);
 
 
-  // to hold order details
-//   const [orderDetails,setOrderDetails] = useState(null); 
-
-//   useEffect(() => {
-//     const mockOrderDetails = {
-//       _id: id,
-//       createdAt: new Date(),
-//       isPaid: true,
-//       isDelivered: false,
-//       paymentMethod: "PayPal",
-//       shippingMethod: "Standard",
-//       shippingAddress: { city: "New York", country: "USA" },
-//       orderItems: [
-//         {
-//           productId: "1",
-//           name: "Jacket",
-//           price: 120,
-//           quantity: 1,
-//           image: "https://picsum.photos/150?random=1",
-//         },
-//         {
-//           productId: "2",
-//           name: "Jeans",
-//           price: 120,
-//           quantity: 2,
-//           image: "https://picsum.photos/150?random=2",
-//         },
-//       ],
-//     };
-//     setOrderDetails(mockOrderDetails);
-//   },[id]);
+  
   
 
 if(loading){
@@ -117,11 +87,11 @@ return (
                     </table>
                 </div>
                 {/* Back to orders Link */}
-                <Link to='/my-orders' className='text-blue-500 hover:underline'>Back to My Orders</Link>
+                <Link to='/admin/orders' className='text-blue-500 hover:underline'>Back to My Orders</Link>
             </div>
         )}
     </div>
   )
 }
 
-export default OrderDetails
+export default AdminGetOrderDetails

@@ -112,9 +112,9 @@ function ProductDetails({productId}) {
                      <p className='text-xl text-gray-700 mb-2 font-bold'>
                         $ {selectedProduct.price}
                      </p>
-                     <p className='text-xl  mb-2 '>
+                     <div className='text-xl  mb-2 '>
                          {<StarRating rating={selectedProduct.rating} reviews={selectedProduct.numReviews}/>}
-                     </p>
+                     </div>
                      <p className='text-gray-600 mb-4'>
                         {selectedProduct.description}
                      </p>
