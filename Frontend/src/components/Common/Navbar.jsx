@@ -18,7 +18,7 @@ function Navbar() {
   const {search} = useLocation();
 
   const isActive = (matchQuery) => {
-    console.log(search);
+    // console.log(search);
    return search.includes(matchQuery);
   }
   function toggleNavDrawer(){

@@ -110,6 +110,7 @@ function ProductDetails({ productId }) {
             </div>
             {/* Main image */}
             <div className="md:w-1/2">
+            {location.pathname!=='/' &&(
               <div className=" md:hidden flex justify-end mb-4">
               <button
                   onClick={handleBack}
@@ -130,7 +131,7 @@ function ProductDetails({ productId }) {
                   </svg>
                   Back
                 </button>
-              </div>
+              </div>)}
               <div className="mb-4">
                 <img
                   src={mainImg || selectedProduct.images[0].url}
@@ -162,6 +163,7 @@ function ProductDetails({ productId }) {
                 <h1 className="text-2xl md:text-3xl font-semibold ">
                   {selectedProduct.name}
                 </h1>
+                {location.pathname!=='/' &&(
                 <button
                   onClick={handleBack}
                   className="cursor-pointer hidden text-blue-600 hover:underline md:flex items-center"
@@ -180,7 +182,7 @@ function ProductDetails({ productId }) {
                     />
                   </svg>
                   Back
-                </button>
+                </button>)}
               </div>
               <p className="text-lg text-gray-600 mb-1 line-through">
                 {selectedProduct.originalPrice &&
