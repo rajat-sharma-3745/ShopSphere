@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import {HiOutlineUser,HiOutlineShoppingBag,HiBars3BottomRight} from 'react-icons/hi2'
 import SearchBar from './SearchBar'
 import CartDrawer from '../Layout/CartDrawer'
@@ -15,7 +15,12 @@ function Navbar() {
 
   const {cart} = useSelector((state)=>state.cart);
   const cartItemCount = cart?.products?.reduce((total,product)=>total+product.quantity,0) ||0
+  const {search} = useLocation();
 
+  const isActive = (matchQuery) => {
+    console.log(search);
+   return search.includes(matchQuery);
+  }
   function toggleNavDrawer(){
     setNavDrawerOpen(p=>!p);
   }
@@ -33,18 +38,18 @@ function Navbar() {
         </div>   
         {/*center links  */}
         <div className='hidden md:flex lg:space-x-6 space-x-3'>
-            <Link to="/collections/all?gender=Men" className='text-gray-700 hover:text-black text-sm font-medium uppercase'>
+            <NavLink to="/collections/all?gender=Men" className={() =>` hover:text-[#e63946] hover:border-b-2 hover:border-b-orange-600 text-sm font-medium uppercase ${isActive('gender=Men') ? 'text-[#e63946] border-b-2 border-b-orange-600' : 'text-gray-700'}`}>
               Men
-            </Link>
-            <Link to="/collections/all?gender=Women" className='text-gray-700 hover:text-black text-sm font-medium uppercase'>
+            </NavLink>
+            <NavLink to="/collections/all?gender=Women" className={() =>` hover:text-[#e63946] hover:border-b-2 hover:border-b-orange-600 text-sm font-medium uppercase ${isActive('gender=Women') ? 'text-[#e63946] border-b-2 border-b-orange-600' : 'text-gray-700'}`}>
               Women
-            </Link>
-            <Link to="/collections/all?category=Top Wear" className='text-gray-700 hover:text-black text-sm font-medium uppercase'>
+            </NavLink>
+            <NavLink to="/collections/all?category=Top Wear" className={() =>` hover:text-[#e63946] hover:border-b-2 hover:border-b-orange-600 text-sm font-medium uppercase ${isActive('category=Top%20Wear') ? 'text-[#e63946] border-b-2 border-b-orange-600' : 'text-gray-700'}`}>
               Top Wear
-            </Link>
-            <Link to="/collections/all?category=Bottom Wear" className='text-gray-700 hover:text-black text-sm font-medium uppercase'>
+            </NavLink>
+            <NavLink to="/collections/all?category=Bottom Wear" className={() =>` hover:text-[#e63946] hover:border-b-2 hover:border-b-orange-600 text-sm font-medium uppercase ${isActive('category=Bottom%20Wear') ? 'text-[#e63946] border-b-2 border-b-orange-600' : 'text-gray-700'}`}>
               Bottom Wear
-            </Link>
+            </NavLink>
 
 
         </div>
