@@ -32,7 +32,7 @@ function Navbar() {
             ShopSphere</Link>
         </div>   
         {/*center links  */}
-        <div className='hidden md:flex space-x-6'>
+        <div className='hidden md:flex lg:space-x-6 space-x-3'>
             <Link to="/collections/all?gender=Men" className='text-gray-700 hover:text-black text-sm font-medium uppercase'>
               Men
             </Link>
