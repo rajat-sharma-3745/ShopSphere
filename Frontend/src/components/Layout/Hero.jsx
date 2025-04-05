@@ -13,10 +13,10 @@ function Hero() {
                 <h1 className='text-5xl md:text-9xl font-bold tracking-tighter uppercase mb-4'>
                     Vacation <br />Ready
                 </h1>
-                <p className='text-md tracking-tighter md:text-lg mb-6'>
+                <p className='text-md tracking-tighter md:text-xl mb-6'>
                     Explore our vacation-ready outfits with fast worldwide shipping.
                 </p>
-                <Link to='collections/all' className='bg-white text-gray-950 rounded-sm sm:px-6 px-3 py-2 sm:text-lg text-md'>Shop Now</Link>
+                <Link to='collections/all' className='bg-orange-600 hover:bg-red-700 transition duration-300 text-white font-semibold rounded-md sm:px-6 px-3 py-2 sm:text-lg text-md'>Shop Now</Link>
             </div>
         </div>
     </section>

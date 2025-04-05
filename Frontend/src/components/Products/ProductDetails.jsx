@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 import ProductGrid from "./ProductGrid";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchProductDetails,
@@ -15,6 +15,7 @@ function ProductDetails({ productId }) {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const { selectedProduct, similarProducts, loading, error } = useSelector(
     (state) => state.products
   );
@@ -73,6 +74,12 @@ function ProductDetails({ productId }) {
     if (action === "minus" && quantity > 1) setQuantity((p) => p - 1);
     if (action === "plus") setQuantity((p) => p + 1);
   }
+  function handleBack(){
+    if(location.pathname==='/'){
+        return;
+    }
+    else navigate(-1);
+  }
 
   if (loading) {
     return <ProductDetailsShimmer />;
@@ -103,10 +110,10 @@ function ProductDetails({ productId }) {
             </div>
             {/* Main image */}
             <div className="md:w-1/2">
-              <div className="flex justify-end mb-4">
+              <div className=" md:hidden flex justify-end mb-4">
               <button
-                  onClick={() => navigate(-1)}
-                  className="cursor-pointer md:hidden text-blue-600 hover:underline flex items-center"
+                  onClick={handleBack}
+                  className="cursor-pointer text-blue-600 hover:underline flex items-center"
                 >
                   <svg
                     className="w-4 h-4 mr-1"
@@ -156,7 +163,7 @@ function ProductDetails({ productId }) {
                   {selectedProduct.name}
                 </h1>
                 <button
-                  onClick={() => navigate(-1)}
+                  onClick={handleBack}
                   className="cursor-pointer hidden text-blue-600 hover:underline md:flex items-center"
                 >
                   <svg
