@@ -341,7 +341,7 @@ function FilterSidebar() {
           name="priceRange"
           min={0}
           max={100}
-          className=" h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+          className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
         />
         <div className="flex justify-between text-gray-600 mt-2">
           <span>$0</span>
