@@ -60,14 +60,14 @@ return (
         {!orderDetails?(
             <p>No orders details found</p>
         ):(
-            <div className='rounded-lg border p-4 sm:p-6'>
+            <div className='rounded-lg border border-gray-300 shadow-md p-4 sm:p-6'>
                 {/* Order Info */}
                 <div className='flex flex-col justify-between md:flex-row mb-8'>
                     <div>
                         <h3 className='font-semibold text-lg md:text-xl'>Order ID: #{orderDetails._id}</h3>
                         <p className='text-gray-600'>{new Date(orderDetails.createdAt).toLocaleDateString()}</p>
                     </div>
-                    <div className='flex flex-col items-start sm:items-end mt-4 sm:mt-0'>
+                    <div className='flex sm:flex-col flex-row items-start sm:items-end mt-4 sm:mt-0'>
                         <span className={`${orderDetails.isPaid?"bg-green-100 text-green-700":'bg-red-100 text-red-700'} px-3 py-1 rounded-full text-sm font-medium mb-2`}>
                              {orderDetails.isPaid?'Approved':'Pending'}
                         </span>
@@ -96,7 +96,7 @@ return (
                         <thead className='bg-gray-100'>
                             <tr>
                                 <th className='py-2 px-4'>Name</th>
-                                <th className='py-2 px-4'>Unit Price</th>
+                                <th className='py-2 px-4 text-nowrap'>Unit Price</th>
                                 <th className='py-2 px-4'>Quantity</th>
                                 <th className='py-2 px-4'>Total</th>
                             </tr>
@@ -104,9 +104,9 @@ return (
                         <tbody>
                             {orderDetails.orderItems.map((item)=>(
                                 <tr key={item.productId} className='border-b'>
-                                    <td className='py-2 px-4 flex items-center'>
-                                        <img src={item.image} alt={item.name} className='w-12 h-12 object-cover rounded-lg mr-4' />
-                                        <Link to={`/product/${item.productId}`} className='text-blue-500 hover:underline'>{item.name}</Link>
+                                    <td className='py-2 px-4 flex items-center space-x-2'>
+                                        <img src={item.image} alt={item.name} className='w-12 h-12 object-cover rounded-lg ' />
+                                        <Link to={`/product/${item.productId}`} className='text-blue-500 hover:underline text-nowrap mr-4'>{item.name}</Link>
                                     </td>
                                     <td className="py-2 px-4 ">${item.price}</td>
                                     <td className="py-2 px-4 ">{item.quantity}</td>

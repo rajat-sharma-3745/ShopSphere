@@ -33,6 +33,7 @@ router.post('/register', async (req,res)=>{
                 name:newUser.name,
                 email:newUser.email,
                 role:newUser.role,
+                createdAt:newUser.createdAt,
                },
                token,
             })
@@ -69,6 +70,7 @@ router.post('/login',async (req,res)=>{
                 name:user.name,
                 email:user.email,
                 role:user.role,
+                createdAt:user.createdAt,
                },
                token,
             })
