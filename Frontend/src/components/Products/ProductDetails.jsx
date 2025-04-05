@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductDetails, fetchSimilarProducts } from '../../redux/slice/productsSlice';
 import { addToCart } from '../../redux/slice/cartSlice';
 import ProductDetailsShimmer from './ProductDetailsShimmer';
+import StarRating from './StarRating';
 
 
 function ProductDetails({productId}) {
@@ -81,7 +82,7 @@ function ProductDetails({productId}) {
                 <div className='hidden md:flex flex-col space-y-4 mr-6'>
                     {
                         selectedProduct.images.map((image,index)=>(
-                            <img key={index} src={image?.url} alt={image?.altText || `Thumbnail ${index}`} className={`w-20 h-20 object-cover rounded-lg cursor-pointer border ${mainImg===image.url?'border-black border-2':'border-gray-300'}`} onClick={()=>setMainImg(image.url)} />
+                            <img key={index} src={image?.url} alt={image?.altText || `Thumbnail ${index}`} className={`w-20 h-20 object-cover object-top rounded-lg cursor-pointer border ${mainImg===image.url?'border-black border-2':'border-gray-300'}`} onClick={()=>setMainImg(image.url)} />
                         ))
                     }
                 </div>
@@ -95,7 +96,7 @@ function ProductDetails({productId}) {
                 <div className='md:hidden flex overflow-x-scroll space-x-4 mb-4'>
                 {
                     selectedProduct.images.map((image,index)=>(
-                        <img key={index} src={image?.url} alt={image?.altText || `Thumbnail ${index}`} className={`w-20 h-20 object-cover rounded-lg cursor-pointer border ${mainImg===image.url?'border-black border-2':'border-gray-300'}`} onClick={()=>setMainImg(image.url)} />
+                        <img key={index} src={image?.url} alt={image?.altText || `Thumbnail ${index}`} className={`w-20 h-20 object-cover object-top rounded-lg cursor-pointer border ${mainImg===image.url?'border-black border-2':'border-gray-300'}`} onClick={()=>setMainImg(image.url)} />
                     ))
                 }
                 </div>
@@ -110,6 +111,9 @@ function ProductDetails({productId}) {
                      </p>
                      <p className='text-xl text-gray-700 mb-2 font-bold'>
                         $ {selectedProduct.price}
+                     </p>
+                     <p className='text-xl  mb-2 '>
+                         {<StarRating rating={selectedProduct.rating} reviews={selectedProduct.numReviews}/>}
                      </p>
                      <p className='text-gray-600 mb-4'>
                         {selectedProduct.description}
