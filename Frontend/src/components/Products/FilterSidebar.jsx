@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-
 function FilterSidebar() {
- 
   const [searchParams, setSearchParams] = useSearchParams(); // to get query params
   // to store the filters ,user choosed
   const [filters, setFilters] = useState({
@@ -16,6 +14,7 @@ function FilterSidebar() {
     minPrice: 0,
     maxPrice: 100,
   });
+  // console.log(filters);
 
   // we can update the search params ,but to update the url in the search bar , we need to navigate to the new url with query params for that we will use useNavigate hook
   const navigate = useNavigate(); //it returns a function that lets us navigate programatically in the browser in response to user interactions
@@ -85,6 +84,7 @@ function FilterSidebar() {
       } else newFilters[name] = value;
     }
     setFilters(newFilters);
+
     updateUrlParams(newFilters);
   }
   //to update the query params based on new filters, we have to create url search params object
@@ -132,9 +132,8 @@ function FilterSidebar() {
     setPriceRange([0, params.maxPrice || 100]);
   }, [searchParams]);
 
-
   return (
-    <div className="p-4">
+    <div className="p-3">
       <div className="flex justify-between items-center mb-4 pb-2 border-b border-b-gray-300">
         <h3 className="text-xl font-medium text-gray-800 ">Filter</h3>
       </div>
@@ -144,18 +143,29 @@ function FilterSidebar() {
           Category
         </label>
         {categories.map((category) => (
-          <div key={category} className="flex items-center mb-1">
-            <input id={category}
-              type="radio"
-              value={category}
-              onChange={handleFilterChange}
-              checked={filters.category === category}
-              name="category"
-              className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
-            />
-            <label htmlFor={category}>
-            <span className="text-gray-700 cursor-pointer">{category}</span></label>
+          <label key={category} className="flex items-center space-x-2 cursor-pointer mb-1">
+          {/* Hidden Native Radio */}
+          <input
+            type="radio"
+            name="category"
+            value={category}
+            checked={filters.category === category}
+            onChange={handleFilterChange}
+            className="hidden peer"
+          />
+
+          {/* Custom Styled Circle */}
+          <div
+            className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all 
+              ${filters.category === category ? "border-green-500" : "border-gray-400"}`}
+          >
+            <div className={`w-3 h-3 rounded-full transition-all 
+              ${filters.category === category ? "bg-green-500" : "bg-transparent"}`}></div>
           </div>
+
+          {/* Label Text */}
+          <span className="capitalize ">{category}</span>
+        </label>
         ))}
       </div>
       {/* Gender filter */}
@@ -164,18 +174,29 @@ function FilterSidebar() {
           Gender
         </label>
         {genders.map((gender) => (
-          <div key={gender} className="flex items-center mb-1">
-            <input id={gender}
-              type="radio"
-              value={gender}
-              onChange={handleFilterChange}
-              checked={filters.gender === gender}
-              name="gender"
-              className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
-            />
-            <label htmlFor={gender}>
-            <span className="text-gray-700 cursor-pointer">{gender}</span></label>
+          <label key={gender} className="flex items-center space-x-2 cursor-pointer mb-1">
+          {/* Hidden Native Radio */}
+          <input
+            type="radio"
+            name="gender"
+            value={gender}
+            checked={filters.gender === gender}
+            onChange={handleFilterChange}
+            className="hidden peer"
+          />
+
+          {/* Custom Styled Circle */}
+          <div
+            className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all 
+              ${filters.gender === gender ? "border-green-500" : "border-gray-400"}`}
+          >
+            <div className={`w-3 h-3 rounded-full transition-all 
+              ${filters.gender === gender ? "bg-green-500" : "bg-transparent"}`}></div>
           </div>
+
+          {/* Label Text */}
+          <span className="capitalize ">{gender}</span>
+        </label>
         ))}
       </div>
       {/* Color filter */}
@@ -183,18 +204,22 @@ function FilterSidebar() {
         <label htmlFor="" className="block text-gray-600 font-medium mb-2">
           Color
         </label>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap space-x-1.5 space-y-1">
           {colors.map((color) => (
-            <button
-              key={color}
-              value={color}
-              onClick={handleFilterChange}
-              name="color"
-              className={`w-8 h-8 rounded-full border border-gray-300 cursor-pointer transition hover:scale-105 ${
-                filters.color === color ? "ring-2 ring-blue-500" : ""
-              }`}
-              style={{ backgroundColor: color.toLocaleLowerCase() }}
-            ></button>
+           <label key={color} className="cursor-pointer">
+           <input
+             type="radio"
+             name="color"
+             value={color}
+             checked={filters.color === color}
+             onChange={handleFilterChange}
+             className="hidden peer"
+           />
+           <div
+             className={`w-8 h-8 rounded-full border-2 transition-all peer-checked:ring-2 peer-checked:ring-black`}
+             style={{ backgroundColor: color }}
+           />
+         </label>
           ))}
         </div>
       </div>
@@ -205,18 +230,33 @@ function FilterSidebar() {
           Size
         </label>
         {sizes.map((size) => (
-          <div key={size} className="flex items-center mb-1">
-            <input id={size}
+          <label key={size} className="flex items-center space-x-2 cursor-pointer">
+            <input
               type="checkbox"
-              value={size}
+              className="hidden peer"
               onChange={handleFilterChange}
-              checked={filters.size.includes(size)}
+              value={size}
               name="size"
-              className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
+              checked={filters.size.includes(size)}
             />
-            <label htmlFor={size}>
-            <span className="text-gray-700 cursor-pointer">{size}</span></label>
-          </div>
+            <div className="w-5 h-5 border-2 border-gray-700 rounded-md peer-checked:border-green-500 peer-checked:bg-green-500 flex items-center justify-center">
+              {filters.size.includes(size) && (
+                <svg
+                  className="w-4 h-4 text-black transition-opacity"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+              )}
+            </div>
+            <span>{size}</span>
+          </label>
         ))}
       </div>
       {/* Materials filter */}
@@ -225,18 +265,33 @@ function FilterSidebar() {
           Materials
         </label>
         {materials.map((material) => (
-          <div key={material} className="flex items-center mb-1">
-            <input id={material}
-              type="checkbox"
-              value={material}
-              onChange={handleFilterChange}
-              checked={filters.material.includes(material)}
-              name="material"
-              className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
-            />
-            <label htmlFor={material}>
-            <span className="text-gray-700 cursor-pointer">{material}</span></label>
-          </div>
+           <label key={material} className="flex items-center space-x-2 cursor-pointer">
+           <input
+             type="checkbox"
+             className="hidden peer"
+             onChange={handleFilterChange}
+             value={material}
+             name="material"
+             checked={filters.material.includes(material)}
+           />
+           <div className="w-5 h-5 border-2 border-gray-700 rounded-md peer-checked:border-green-500 peer-checked:bg-green-500 flex items-center justify-center">
+             {filters.material.includes(material) && (
+               <svg
+                 className="w-4 h-4 text-black transition-opacity"
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 strokeWidth="3"
+                 strokeLinecap="round"
+                 strokeLinejoin="round"
+               >
+                 <path d="M5 13l4 4L19 7" />
+               </svg>
+             )}
+           </div>
+           <span>{material}</span>
+         </label>
         ))}
       </div>
       {/* Brand filter */}
@@ -245,18 +300,33 @@ function FilterSidebar() {
           Brands
         </label>
         {brands.map((brand) => (
-          <div key={brand} className="flex items-center mb-1">
-            <input id={brand}
-              type="checkbox"
-              value={brand}
-              onChange={handleFilterChange}
-              checked={filters.brand.includes(brand)}
-              name="brand"
-              className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
-            />
-            <label htmlFor={brand}>
-            <span className="text-gray-700 cursor-pointer">{brand}</span></label>
-          </div>
+           <label key={brand} className="flex items-center space-x-2 cursor-pointer">
+           <input
+             type="checkbox"
+             className="hidden peer"
+             onChange={handleFilterChange}
+             value={brand}
+             name="brand"
+             checked={filters.brand.includes(brand)}
+           />
+           <div className="w-5 h-5 border-2 border-gray-700 rounded-md peer-checked:border-green-500 peer-checked:bg-green-500 flex items-center justify-center">
+             {filters.brand.includes(brand) && (
+               <svg
+                 className="w-4 h-4 text-black transition-opacity"
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 strokeWidth="3"
+                 strokeLinecap="round"
+                 strokeLinejoin="round"
+               >
+                 <path d="M5 13l4 4L19 7" />
+               </svg>
+             )}
+           </div>
+           <span>{brand}</span>
+         </label>
         ))}
       </div>
       {/* Price range filter */}
@@ -271,7 +341,7 @@ function FilterSidebar() {
           name="priceRange"
           min={0}
           max={100}
-          className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+          className=" h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
         />
         <div className="flex justify-between text-gray-600 mt-2">
           <span>$0</span>
