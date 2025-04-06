@@ -6,6 +6,7 @@ import { registerUser } from "../redux/slice/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { mergeCart } from "../redux/slice/cartSlice";
 import { AiFillEye, AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { toast } from "sonner";
 
 
 function Register() {
@@ -38,7 +39,11 @@ function Register() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(registerUser({ name, email, password }));
+    if(password.length<6){
+      toast.info('Password must of atleast 6 characters',{duration:2000}); 
+      return;
+  }
+    dispatch(registerUser({ name, email, password })).then(()=>{toast.success('User registered successfully')});
   }
   return (
     <div className="flex">

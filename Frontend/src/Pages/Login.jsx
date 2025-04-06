@@ -48,6 +48,10 @@ function Login() {
 
   function handleSubmit(e){
     e.preventDefault();
+    if(password.length<6){
+        toast.info('Password must of atleast 6 characters',{duration:2000}); 
+        return;
+    }
     dispatch(loginUser({email,password}));
   }
   return (
