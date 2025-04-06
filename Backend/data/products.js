@@ -606,11 +606,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://res.cloudinary.com/rajat-sharma/image/upload/v1743478843/tisjzzz6x44c7wkw2ozn.webp",
+        url: "https://res.cloudinary.com/rajat-sharma/image/upload/v1743927724/ar0bn2il9pej5fb3e2la.avif",
         altText: "Wide-Leg Trousers Front View",
       },
       {
-        url: "https://res.cloudinary.com/rajat-sharma/image/upload/v1743478848/f5rrjjenber4nlgj6yfy.webp",
+        url: "https://res.cloudinary.com/rajat-sharma/image/upload/v1743927730/tov046xzh2ovwy2lfesh.webp",
         altText: "Wide-Leg Trousers Front View",
       },
     ],
