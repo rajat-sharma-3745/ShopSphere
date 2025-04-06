@@ -25,7 +25,7 @@ function StarRating({rating, reviews, outOf = 5}) {
     return (<>
         <div className="flex items-center gap-0.5">
           {stars}
-          <span className="text-sm text-gray-500 ml-2">({reviews} reviews)</span>
+          <span className="text-sm text-gray-500 ml-2">({rating}) {reviews} reviews</span>
         </div>
         {/* <div className='flex items-center'>
             {   
