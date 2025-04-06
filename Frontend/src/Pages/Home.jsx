@@ -9,6 +9,7 @@ import FeaturesSection from '../components/Products/FeaturesSection'
 import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
 import { fetchProductsByFilters } from '../redux/slice/productsSlice'
+import SlidingBanner from '../components/Layout/SlidingBanner'
 // const placeholderProducts = [
 //   {
 //     _id: 1,
@@ -96,7 +97,7 @@ function Home() {
           <p className='text-center'>Loading best seller product</p>
         )}
         
-
+        <SlidingBanner/>
         <div className='container mx-auto lg:px-10'>
           <h2 className='text-3xl text-center font-bold mb-4'>
             Top Wears for Women

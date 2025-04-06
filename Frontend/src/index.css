@@ -8,5 +8,15 @@
 
 @theme  {
   --color-rabbit-red: #ea2e0e;
+  --animate-marquee:marquee 20s linear infinite;
+
+  @keyframes marquee {
+    0%{
+      transform: translateX(0%);
+    }
+    100%{
+      transform: translateX(-50%);
+    }
+  }
   
 }
