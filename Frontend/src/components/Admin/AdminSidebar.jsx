@@ -18,7 +18,7 @@ function AdminSidebar({onClick}) {
   return (
     <div className='p-6'>
       <div className='mb-6'>
-        <Link to='/admin' onClick={onClick} className='text-2xl font-medium'>Rabbit</Link>
+        <Link to='/admin' onClick={onClick} className='text-2xl font-medium'>ShopSphere</Link>
       </div>
       <h2 className='text-xl text-center font-medium mb-6'>Admin Dashboard</h2>
       <nav className='flex flex-col space-y-2 '>
