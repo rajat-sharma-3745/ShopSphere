@@ -24,6 +24,7 @@ import ProtectedRoute from "./components/Common/ProtectedRoute";
 import { ScrollToTop } from "./components/Common/ScrollToTop";
 import AdminGetOrderDetails from "./components/Admin/AdminGetOrderDetails";
 import AddProductPage from "./components/Admin/AddProductPage";
+import UpdateProfile from "./Pages/UpdateProfile";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             {/* <Route path="loader" element={<CartShimmer />} /> */}
             <Route path="register" element={<Register />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="update-profile" element={<UpdateProfile />} />
             <Route
               path="collections/:collection"
               element={<CollectionPage />}

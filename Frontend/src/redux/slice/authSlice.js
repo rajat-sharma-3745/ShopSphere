@@ -7,23 +7,23 @@ const userFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStora
 
 // check for guest id in local storage or generate a new one
 const intialGuestId = localStorage.getItem('guestId') || `guest_${new Date().getTime()}`;
-localStorage.setItem('guestId',intialGuestId);
+localStorage.setItem('guestId', intialGuestId);
 
 // Initial state
 const initialState = {
-    user:userFromStorage, //stores the logged-in user data, initially set from localstorage(if exists), otherwise null.
-    guestId:intialGuestId,//stores a guest id to track user who are not logged in, either from localstorage or generated
-    isLoading:false,//boolean indicating whether the req. is in progress
-    error:null // to store any error msgs from backend
+    user: userFromStorage, //stores the logged-in user data, initially set from localstorage(if exists), otherwise null.
+    guestId: intialGuestId,//stores a guest id to track user who are not logged in, either from localstorage or generated
+    isLoading: false,//boolean indicating whether the req. is in progress
+    error: null // to store any error msgs from backend
 }
 
 // Async thunk for login : To send login info to backend 
 // createAsyncThunk : it takes two args, action type and async function(payload creator) which perform async logic , this function also takes two args, first is the data that is passed while dispatching the action and second is object containing utitlity methods provided by rtk.
-export const loginUser = createAsyncThunk('auth/loginUser', async(userData, {rejectWithValue})=>{
+export const loginUser = createAsyncThunk('auth/loginUser', async (userData, { rejectWithValue }) => {
     try {
-        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/login`,userData); //sending user data
-        localStorage.setItem('userInfo',JSON.stringify(response.data.user))
-        localStorage.setItem('userToken',response.data.token)
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/login`, userData); //sending user data
+        localStorage.setItem('userInfo', JSON.stringify(response.data.user))
+        localStorage.setItem('userToken', response.data.token)
 
         return response.data.user; //returning user object from response
 
@@ -33,17 +33,17 @@ export const loginUser = createAsyncThunk('auth/loginUser', async(userData, {rej
 })
 
 
-export const registerUser = createAsyncThunk('auth/registerUser', async(userData, {rejectWithValue})=>{
+export const registerUser = createAsyncThunk('auth/registerUser', async (userData, { rejectWithValue }) => {
     try {
-        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/register`,userData,
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/register`, userData,
             {
                 headers: {
-                    "Content-Type":"multipart/form-data"
+                    "Content-Type": "multipart/form-data"
                 },
             }
         ); //sending user data , and after recieving response ,set it to localstorage
-        localStorage.setItem('userInfo',JSON.stringify(response.data.user))
-        localStorage.setItem('userToken',response.data.token)
+        localStorage.setItem('userInfo', JSON.stringify(response.data.user))
+        localStorage.setItem('userToken', response.data.token)
 
         return response.data.user; //returning user object from response
 
@@ -52,23 +52,50 @@ export const registerUser = createAsyncThunk('auth/registerUser', async(userData
     }
 })
 
+
+// Update user profile
+export const updateUserProfile = createAsyncThunk(
+    'auth/updateUserProfile',
+    async (formData, { rejectWithValue }) => {
+        try {
+            const response = await axios.put(
+                `${import.meta.env.VITE_BACKEND_URL}/api/users/update-profile`,
+                formData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('userToken')}`
+                    },
+                }
+            );
+
+            localStorage.setItem('userInfo', JSON.stringify(response.data.user)); // update storage
+
+            return response.data.user;
+        } catch (error) {
+            return rejectWithValue(error.response.data);
+        }
+    }
+);
+
+
+
 // Slice : section of the redux state , combines the actions and reducers in single object
 const authSlice = createSlice({
-    name:"auth",
+    name: "auth",
     initialState,
     // reducers perform synchronous operations like directly update state
-    reducers:{
-       logout : (state) => {
-           state.user = null;  // we are getting the user data from initial state , when user logout clear it
-           state.guestId = `guest_${new Date().getTime()}`; //Reset guest id on logout
-           localStorage.setItem('guestId', state.guestId);
-           localStorage.removeItem('userInfo');
-           localStorage.removeItem('userToken');
-       },
-       generateNewGuestId : (state) => {
-        state.guestId = `guest_${new Date().getTime()}`; 
-        localStorage.setItem('guestId', state.guestId);
-       },
+    reducers: {
+        logout: (state) => {
+            state.user = null;  // we are getting the user data from initial state , when user logout clear it
+            state.guestId = `guest_${new Date().getTime()}`; //Reset guest id on logout
+            localStorage.setItem('guestId', state.guestId);
+            localStorage.removeItem('userInfo');
+            localStorage.removeItem('userToken');
+        },
+        generateNewGuestId: (state) => {
+            state.guestId = `guest_${new Date().getTime()}`;
+            localStorage.setItem('guestId', state.guestId);
+        },
     },
     // extra reducers used for handling async actions created with createAsyncThunk.
     // whenever we dispatch a async action (created with createAsyncThunk) , createAsyncThunk automatically generates three action types ,for the async request 
@@ -79,28 +106,39 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
         // builder is a object that handles async actions using chainable methods like addCase() which takes action type and function to update the state based on action type (action types are automatically generated by thunk)
         builder
-        .addCase(loginUser.pending,(state) => {
-            state.isLoading = true;
-            state.error = null;
-        }).addCase(loginUser.fulfilled,(state, action) => {
-            state.isLoading = false;
-            state.user = action.payload; // Update state with logged-in user data, action.payload gets its data from the return value of the async function inside createAsyncThunk.
-        }).addCase(loginUser.rejected,(state,action) => {
-            state.isLoading = false;
-            state.error = action.payload.message;
-        })
-        .addCase(registerUser.pending,(state) => {
-            state.isLoading = true;
-            state.error = null;
-        }).addCase(registerUser.fulfilled,(state, action) => {
-            state.isLoading = false;
-            state.user = action.payload; // Update state with logged-in user data, action.payload gets its data from the return value of the async function inside createAsyncThunk.
-        }).addCase(registerUser.rejected,(state,action) => {
-            state.isLoading = false;
-            state.error = action.payload.message;
-        })
+            .addCase(loginUser.pending, (state) => {
+                state.isLoading = true;
+                state.error = null;
+            }).addCase(loginUser.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.user = action.payload; // Update state with logged-in user data, action.payload gets its data from the return value of the async function inside createAsyncThunk.
+            }).addCase(loginUser.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload.message;
+            })
+            .addCase(registerUser.pending, (state) => {
+                state.isLoading = true;
+                state.error = null;
+            }).addCase(registerUser.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.user = action.payload; // Update state with logged-in user data, action.payload gets its data from the return value of the async function inside createAsyncThunk.
+            }).addCase(registerUser.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload.message;
+            }).addCase(updateUserProfile.pending, (state) => {
+                state.isLoading = true;
+                state.error = null;
+            })
+            .addCase(updateUserProfile.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.user = action.payload; // update state with new user info
+            })
+            .addCase(updateUserProfile.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload?.message || "Update failed";
+            })
     }
 })
 
-export const {generateNewGuestId, logout} = authSlice.actions;
+export const { generateNewGuestId, logout } = authSlice.actions;
 export default authSlice.reducer;
