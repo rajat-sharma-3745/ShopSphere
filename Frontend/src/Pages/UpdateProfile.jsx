@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { updateUserProfile } from "../redux/slice/authSlice";
 import axios from "axios";
@@ -86,7 +86,8 @@ const UpdateProfile = () => {
   }
 
   return (
-    <div className="container mx-auto md:w-2/3 lg:w-2/4 bg-gradient-to-br from-white to-gray-100 shadow-lg my-4 sm:p-5 p-3">
+    <div className="p-3">
+    <div className="container mx-auto md:w-2/3 lg:w-2/4 bg-gradient-to-br from-white to-gray-100 shadow-lg  sm:p-5 p-3">
       <h1 className="sm:text-3xl text-xl font-bold text-center">
         Update Profile
       </h1>
@@ -95,7 +96,7 @@ const UpdateProfile = () => {
         <div className="sm:flex-1 w-full flex justify-center items-center ">
           <div
             onClick={handleAvatarClick}
-            className="relative rounded-full lg:w-45 lg:h-45 md:w-40 md:h-40 sm:w-36 sm:h-36 w-32 h-32  bg-gradient-to-r from-orange-200 to-yellow-500 hover:from-green-400 hover:to-green-600 flex items-center justify-center text-5xl font-bold cursor-pointer duration-300"
+            className="relative rounded-full lg:w-45 lg:h-45 md:w-40 md:h-40 sm:w-36 sm:h-36 w-32 h-32  bg-gradient-to-r from-orange-200 to-yellow-500  flex items-center justify-center text-5xl font-bold cursor-pointer duration-300"
           >
             {preview ? (
               <img
@@ -157,7 +158,12 @@ const UpdateProfile = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center gap-3">
+        <Link to='/profile'
+          className={`px-3 font-semibold  text-white py-2 rounded-md bg-blue-600 hover:bg-blue-700  `}
+        >
+          Back
+        </Link>
         <button
           onClick={handleSubmit}
           type="submit"
@@ -167,6 +173,7 @@ const UpdateProfile = () => {
           Update
         </button>
       </div>
+    </div>
     </div>
   );
 };
