@@ -6,7 +6,7 @@ function ProfileCard({ user, handleLogout }) {
       <div className="flex flex-col">
         <div className="bg-gradient-to-r from-orange-500 to-indigo-600 sm:px-5 py-7 px-3 flex sm:space-x-4 space-x-1.5 rounded-t-lg ">
           <div className="rounded-full bg-orange-300 text-white sm:w-20 sm:h-20 w-13 h-13 flex items-center justify-center sm:text-6xl text-2xl font-semibold">
-            {user?.name.charAt(0).toUpperCase()}
+            {user.avatar ? <img src={ user?.avatar} className="rounded-full sm:w-20 sm:h-20 w-13 h-13" alt="User profile" /> : user?.name.charAt(0).toUpperCase() }
           </div>
           <div className="flex flex-col sm:space-y-1">
             <h1 className="sm:text-xl text-lg font-semibold">

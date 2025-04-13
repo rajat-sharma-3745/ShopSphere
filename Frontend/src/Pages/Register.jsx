@@ -13,6 +13,7 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [avatar, setAvatar] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
@@ -43,7 +44,12 @@ function Register() {
       toast.info('Password must of atleast 6 characters',{duration:2000}); 
       return;
   }
-    dispatch(registerUser({ name, email, password })).then(()=>{toast.success('User registered successfully')});
+  const formData = new FormData();
+  formData.append('name',name);
+  formData.append('email',email);
+  formData.append('password',password);
+  formData.append('avatar',avatar);
+    dispatch(registerUser(formData)).then(()=>{toast.success('User registered successfully')});
   }
   return (
     <div className="flex">
@@ -69,6 +75,17 @@ function Register() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
+              className="w-full p-2 border rounded  border-gray-400 focus:border-2 focus:border-black focus:outline-none"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="" className="block text-sm font-semibold mb-2">
+              Profile Pic
+            </label>
+            <input
+              type="file"
+              onChange={(e) => setAvatar(e.target.files[0])}
               placeholder="Enter your name"
               className="w-full p-2 border rounded  border-gray-400 focus:border-2 focus:border-black focus:outline-none"
             />
@@ -133,7 +150,7 @@ function Register() {
           <img
             src={register2}
             alt="Register"
-            className="h-[600px] w-full object-cover "
+            className="h-[680px] w-full object-cover "
           />
         </div>
       </div>

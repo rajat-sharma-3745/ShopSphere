@@ -21,6 +21,7 @@ const userSchema=new mongoose.Schema({
         required:true,
         minLength:6
     },
+    avatar:String,
     role:{
         type:String,
         enum:["customer","admin"],

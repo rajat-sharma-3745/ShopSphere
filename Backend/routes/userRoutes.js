@@ -2,11 +2,13 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const { protect } = require('../middlewares/authMiddleware');
+const { upload } = require('../middlewares/multerMiddleware');
+const { uploadOnCloudinary } = require('../utility/cloudinary');
 
 
 const router=express.Router();
 
-router.post('/register', async (req,res)=>{
+router.post('/register', upload.single('avatar'), async (req,res)=>{
     const {name,email,password}=req.body;
 
     // registration logic
@@ -15,8 +17,10 @@ router.post('/register', async (req,res)=>{
         let user = await User.findOne({email});
         if(user) return res.status(400).json({message:"User already exists"});
         
+        const avatar = await uploadOnCloudinary(req?.file?.path);
 
-        const newUser=new User({name,email,password});
+
+        const newUser=new User({name,email,password,avatar});
         await newUser.save();
 
         // JWT Payload
@@ -33,6 +37,7 @@ router.post('/register', async (req,res)=>{
                 name:newUser.name,
                 email:newUser.email,
                 role:newUser.role,
+                avatar:newUser.avatar,
                 createdAt:newUser.createdAt,
                },
                token,
@@ -70,6 +75,7 @@ router.post('/login',async (req,res)=>{
                 name:user.name,
                 email:user.email,
                 role:user.role,
+                avatar:user.avatar,
                 createdAt:user.createdAt,
                },
                token,
