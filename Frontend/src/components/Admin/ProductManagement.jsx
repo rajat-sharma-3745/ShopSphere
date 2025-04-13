@@ -39,7 +39,7 @@ function ProductManagement() {
   return (
     <div className='max-w-7xl mx-auto p-3'>
         <div className='flex items-center justify-between mb-5'>
-        <h2 className='sm:text-2xl font-bold text-md'>Product Management</h2>
+        <h2 className='sm:text-2xl font-bold text-lg'>Product Management</h2>
         <Link to={`/admin/products/add`} className='bg-orange-500 hover:bg-orange-600 text-white sm:px-4 sm:py-2 px-3 py-1 rounded mr-2 cursor-pointer'>Add</Link>
         </div>
         <div className='overflow-x-auto shadow-md sm:rounded-lg'>
