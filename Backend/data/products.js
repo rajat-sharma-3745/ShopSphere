@@ -1104,7 +1104,7 @@ const products = [
     category: "Top Wear",
     brand: "ChicWrap",
     sizes: ["S", "M", "L"],
-    colors: ["Red", "Black", "White"],
+    colors: ["Purple", "White"],
     collections: "Evening Collection",
     material: "Polyester",
     gender: "Women",

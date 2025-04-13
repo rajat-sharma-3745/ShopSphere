@@ -23,6 +23,7 @@ import store from "./redux/store";
 import ProtectedRoute from "./components/Common/ProtectedRoute";
 import { ScrollToTop } from "./components/Common/ScrollToTop";
 import AdminGetOrderDetails from "./components/Admin/AdminGetOrderDetails";
+import AddProductPage from "./components/Admin/AddProductPage";
 
 function App() {
   return (
@@ -66,6 +67,7 @@ function App() {
             <Route path="orders" element={<OrderManagement />} />
             <Route path="order/:id" element={<AdminGetOrderDetails />} />
             <Route path="products/:id/edit" element={<EditProductPage />} />
+            <Route path="products/add" element={<AddProductPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
