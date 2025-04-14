@@ -2,7 +2,7 @@ import React from 'react'
 import { IoClose } from "react-icons/io5";
 const DeleteModal = ({onClose, onDelete}) => {
   return (
-    <div className='min-h-screen w-full bg-black/50 z-20 fixed inset-0 flex justify-center items-center'>
+    <div className='min-h-screen w-full bg-black/50 z-20 fixed inset-0 flex justify-center items-center p-4'>
         <div className='max-w-md w-full mx-auto  bg-white p-4 flex flex-col gap-4 rounded-md'>
             <div className='flex justify-between items-center'>
                 <h2 className='text-xl font-semibold'>Are you sure?</h2>

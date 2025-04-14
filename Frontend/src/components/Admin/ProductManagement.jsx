@@ -46,7 +46,7 @@ function ProductManagement() {
 
 
   return (
-    <div className="max-w-7xl mx-auto p-3">
+    <div className="max-w-7xl mx-auto p-1">
         {isModalOpen &&<DeleteModal onClose={()=>setIsModalOpen(p=>!p)} onDelete={()=>handleDelete(selectedId)}/>}
       <div className="flex items-center justify-between mb-5">
         <h2 className="sm:text-2xl font-bold text-lg">Product Management</h2>
