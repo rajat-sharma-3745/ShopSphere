@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function ProfileCard({ user, handleLogout }) {
+  if(!user) return null;
   return (
     <div className=" w-full md:w-2/3 lg:w-2/4 text-white">
       <div className="flex flex-col">

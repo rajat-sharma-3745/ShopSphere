@@ -3,18 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addUser, deleteUser, fetchUsers, updateUser } from '../../redux/slice/adminSlice';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import DeleteModal from './DeleteModal';
 
 function UserManagement() {
-
-//   const users=[
-//     {
-//         _id:123,
-//         name:"John doe",
-//         email:'john@abc.com',
-//         role:'admin'
-//     }
-//   ]  
-
+const [isModalOpen, setIsModalOpen] = useState(false)
+const [selectedId,setSelectedId] = useState(null);
 
 const dispatch = useDispatch();
 const navigate = useNavigate();
@@ -76,13 +69,27 @@ useEffect(()=>{
       dispatch(updateUser({id:userId, role:newRole})).then(()=>{ toast.success("User updated successfully",{duration:1000})})
   }
   function handleDeleteUser(userId){
-    if(window.confirm('Are you sure you want to delete this user?')){
+    // if(window.confirm('Are you sure you want to delete this user?')){
         dispatch(deleteUser(userId)).then(()=>{ toast.success("User deleted successfully",{duration:1000})});
+    // }
+     setIsModalOpen(p=>!p);
+  }
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
     }
 
-  }
+    // Cleanup just in case
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isModalOpen]);
+
+ 
+  
   return (
-    <div className='max-w-7xl mx-auto sm:p-3 p-1'>
+      <div className='max-w-7xl mx-auto sm:p-3 p-1'>
+        {isModalOpen &&<DeleteModal onClose={()=>setIsModalOpen(p=>!p)} onDelete={()=>handleDeleteUser(selectedId)}/>}
         <h2 className='text-2xl font-bold mb-6'>User Management</h2>
         
         {/* Add new user form */}
@@ -141,7 +148,7 @@ useEffect(()=>{
                             </td>
                             {/* <td className='p-4'>{user.email}</td> */}
                             <td className='p-4'>
-                                <button disabled={user.email === "admin@example.com"}  onClick={()=>handleDeleteUser(user._id)} className={`bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded ${user.email === "admin@example.com"?"cursor-not-allowed":"cursor-pointer"}`}> 
+                                <button disabled={user.email === "admin@example.com"}  onClick={()=>{setIsModalOpen(p=>!p); setSelectedId(user._id)}} className={`bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded ${user.email === "admin@example.com"?"cursor-not-allowed":"cursor-pointer"}`}> 
                                     Delete
                                 </button>
                             </td>

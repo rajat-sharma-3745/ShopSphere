@@ -25,7 +25,7 @@ function Profile() {
         navigate('/login');
         toast.success(<b>Logged out successfully</b>,{duration:2000})
     } 
-
+    if (!user) return null;
   return (
   
         <div className='min-h-screen container mx-auto p-5 md:p-6 '>

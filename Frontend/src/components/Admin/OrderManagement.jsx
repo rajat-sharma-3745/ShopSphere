@@ -4,6 +4,7 @@ import { fetchAllOrders, updateOrderStatus } from "../../redux/slice/adminOrderS
 import { useNavigate } from "react-router-dom";
 import OrderManagementShimmer from "./OrderManagementShimmer";
 import OrderAndProductManagementShimmer from "./OrderManagementShimmer";
+import { toast } from "sonner";
 
 function OrderManagement() {
 
@@ -40,7 +41,7 @@ function OrderManagement() {
      dispatch(updateOrderStatus({id:orderId,status}));
   }
   if (loading) return <OrderAndProductManagementShimmer name="Order"/>;
-  if (error) return <p>Error: {error}</p>;
+  if (error) toast.error(error);
 
 
   return <div className="max-w-7xl mx-auto p-2">

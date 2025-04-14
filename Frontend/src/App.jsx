@@ -25,6 +25,7 @@ import { ScrollToTop } from "./components/Common/ScrollToTop";
 import AdminGetOrderDetails from "./components/Admin/AdminGetOrderDetails";
 import AddProductPage from "./components/Admin/AddProductPage";
 import UpdateProfile from "./Pages/UpdateProfile";
+import DeleteModal from "./components/Admin/DeleteModal";
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
           <Route path="/" element={<UserLayout />}>
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
-            {/* <Route path="loader" element={<CartShimmer />} /> */}
+            <Route path="loader" element={<DeleteModal />} />
             <Route path="register" element={<Register />} />
             <Route path="profile" element={<Profile />} />
             <Route path="update-profile" element={<UpdateProfile />} />
