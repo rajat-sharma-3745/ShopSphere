@@ -74,7 +74,7 @@ const UpdateProfile = () => {
   updateData.avatar !== user?.avatar;
 
   function handleSubmit(e) {
-    if(!name || !email){
+    if(!updateData.name || !updateData.email){
         toast.info("Name and email must be provided");
         return;
     }

@@ -40,8 +40,12 @@ function Register() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if(!name || !email || !password || !avatar){
+      toast.info("All fields are required")
+      return;
+    }
     if(password.length<6){
-      toast.info('Password must of atleast 6 characters',{duration:2000}); 
+      toast.info('Password must of atleast 6 characters'); 
       return;
   }
   const formData = new FormData();
