@@ -35,11 +35,12 @@ function App() {
         <Toaster position="top-right" />
         <Routes>
           {/* User Layout */}
+          <Route path="register" element={<Register />} />
           <Route path="/" element={<UserLayout />}>
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="loader" element={<DeleteModal />} />
-            <Route path="register" element={<Register />} />
+            {/* <Route path="register" element={<Register />} /> */}
             <Route path="profile" element={<Profile />} />
             <Route path="update-profile" element={<UpdateProfile />} />
             <Route
