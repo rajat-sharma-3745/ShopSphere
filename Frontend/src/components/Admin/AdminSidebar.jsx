@@ -20,7 +20,7 @@ function AdminSidebar({onClick}) {
       <div className='mb-6'>
         <Link to='/admin' onClick={onClick} className='text-2xl font-medium'>ShopSphere</Link>
       </div>
-      <h2 className='text-xl text-center font-medium mb-6'>Admin Dashboard</h2>
+      {/* <h2 className='text-xl text-center font-medium mb-6'>Admin Dashboard</h2> */}
       <nav className='flex flex-col space-y-2 '>
           <NavLink onClick={onClick} to='/admin/users' className={({isActive})=>isActive?'bg-gray-700 text-white  py-3 px-4 rounded flex items-center space-x-2':'text-gray-300 hover:bg-gray-700 hover:text-white  py-3 px-4 rounded flex items-center space-x-2'}>
               <FaUser/>

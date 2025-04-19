@@ -1,7 +1,7 @@
 function OrderAndProductManagementShimmer({ name }) {
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-6 ">{name} Management</h2>
+    <div className="max-w-7xl mx-auto p-1">
+      <h2 className="sm:text-2xl font-bold text-lg ">{name} Management</h2>
       <div className="overflow-x-auto shadow-md sm:rounded-lg">
         <table className="min-w-full text-left text-gray-500 border-separate border-spacing-y-2">
           <tbody>

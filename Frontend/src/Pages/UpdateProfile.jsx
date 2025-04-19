@@ -86,8 +86,8 @@ const UpdateProfile = () => {
   }
 
   return (
-    <div className="p-3">
-    <div className="container mx-auto md:w-2/3 lg:w-2/4 bg-gradient-to-br from-white to-gray-100 shadow-lg  sm:p-5 p-3">
+    <div className="sm:p-15 p-3">
+    <div className="container mx-auto md:w-2/3 lg:w-2/4 bg-gradient-to-b from-sky-100 to-white shadow-lg rounded-lg  sm:p-5 p-3">
       <h1 className="sm:text-3xl text-xl font-bold text-center">
         Update Profile
       </h1>

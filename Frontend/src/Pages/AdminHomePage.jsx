@@ -77,16 +77,16 @@ function AdminHomePage() {
               <tr>
                 <th className="px-4 py-3">Order ID</th>
                 <th className="px-4 py-3">User</th>
-                <th className="px-4 py-3">Total Price</th>
+                <th className="px-4 py-3 text-nowrap">Total Price</th>
                 <th className="px-4 py-3">Status</th>
               </tr>
             </thead>
             <tbody>
               {orders.length > 0 ? (
                 orders.map((order) => (
-                  <tr onClick={()=>handleRowClick(order._id)}
+                  <tr 
                     key={order._id}
-                    className="border-b hover:bg-gray-50 cursor-pointer"
+                    className="border-b "
                   >
                     <td className="p-4">{order._id}</td>
                     <td className="p-4 text-nowrap">{order.user.name}</td>

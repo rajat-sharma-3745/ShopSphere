@@ -56,12 +56,12 @@ function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation(); //get info about the current url
-  const { user, guestId, loading } = useSelector((state) => state.auth);
+  const { user, guestId, isLoading } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
 
   //Get redirect parameter and check if its checkout or something
   const redirect = new URLSearchParams(location.search).get("redirect") || "/"; // location.search means the query string
-  const isCheckoutRedirect = redirect.includes("/checkout");
+  const isCheckoutRedirect = redirect.includes("checkout");
 
   useEffect(() => {
     if (user) {
@@ -252,7 +252,7 @@ function Register() {
            <h2 className="text-2xl font-bold text-center sm:mb-3 mb-2">
              Hey there! 👋
            </h2>
-           <p className='text-center sm:mb-3 '>
+           <p className='text-center sm:mb-3 mb-1 '>
            Join us & shop the trendiest styles!
                  </p>
            <div className="mb-4">
@@ -318,9 +318,9 @@ function Register() {
            </div>
            <button
              type="submit"
-             className="w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800 transition"
+             className="w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800 transition cursor-pointer"
            >
-             {loading ? "Loading..." : "Sign Up"}
+             {isLoading?"Signing up...":"Sign up"}
            </button>
            <p className="mt-6 text-center text-sm">
              Already have an account?{" "}

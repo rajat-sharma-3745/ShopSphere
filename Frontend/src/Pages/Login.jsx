@@ -75,7 +75,7 @@ function Login() {
                     <input type={showPassword?"text":"password"} value={password} onChange={(e)=>setPassword(e.target.value)}  className='w-full p-2 border rounded  border-gray-400 focus:border-2 focus:border-black focus:outline-none ' placeholder='Enter your password'/>
                     <button type='button' onClick={()=>setShowPassword(p=>!p)} className='absolute right-2 top-2 text-black'> {!showPassword ? <AiOutlineEye  size={25}/> :<AiOutlineEyeInvisible  size={25}/>} </button> </div>
                 </div>
-                <button type='submit' className='w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800 transition'>{isLoading?"Signing in...":"Sign In"}</button>
+                <button type='submit' className='w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800 transition cursor-pointer'>{isLoading?"Signing in...":"Sign In"}</button>
                 <p className='mt-6 text-center text-sm'>Don't have an account?{" "}<Link to={`/register?redirect=${encodeURIComponent(redirect)}`} className='text-blue-500' >Register</Link></p>
                 {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
             </form>
