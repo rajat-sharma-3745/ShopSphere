@@ -241,7 +241,7 @@ function Register() {
     
     <div className="flex md:min-h-screen w-screen">
       <div className="fixed -z-1 inset-0" style={{background: 'linear-gradient(rgb(119, 198, 248) 0%, rgb(255, 255, 255) 50%)'}}></div>
-      <div className="w-full md:w-1/2 flex justify-center items-center p-6 md:p-12 ">
+      <div className="w-full md:w-1/2 flex justify-center items-center p-6 md:p-12 pt-8 ">
          <form
            onSubmit={handleSubmit}
            className="w-full max-w-md bg-white p-4 rounded-lg border border-gray-300 shadow-xl"
