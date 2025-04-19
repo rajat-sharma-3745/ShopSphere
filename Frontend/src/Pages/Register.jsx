@@ -120,7 +120,6 @@ function Register() {
    a24,
    a25,
    a26,
-   a27,
    a28,
    a29,
    a30,
@@ -130,6 +129,7 @@ function Register() {
    a34,
    a35,
    a36,
+   a27,
    a37,
 
   ]
