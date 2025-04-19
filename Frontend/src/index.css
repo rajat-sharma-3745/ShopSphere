@@ -9,6 +9,7 @@
 @theme  {
   --color-rabbit-red: #ea2e0e;
   --animate-marquee:marquee 20s linear infinite;
+  --animate-fadeIn:fadeIn 1.5s ease forwards ;
   --animate-marquee-vertical:marqueeVertical 20s linear forwards ;
 
   @keyframes marquee {
@@ -24,7 +25,15 @@
       transform: translateY(0%);
     }
     100%{
-      transform: translateY(-50%);
+      transform: translateY(-30%);
+    }
+  }
+  @keyframes fadeIn {
+    0%{
+      opacity: 0;
+    }
+    100%{
+     opacity: 1;
     }
   }
   

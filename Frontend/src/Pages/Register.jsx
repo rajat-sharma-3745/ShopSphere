@@ -333,10 +333,10 @@ function Register() {
            </p>
          </form>
       </div>
-      <div className="hidden md:block fixed right-0 top-0 origin-top-right -rotate-[15deg] scale-105 translate-y-[-12vw]  w-[53vw] columns-4 gap-2 animate-marquee-vertical">
-      <div className="p-1">
+      <div className="hidden md:block fixed right-0 top-0 origin-top-right -rotate-[15deg] scale-105 translate-y-[-13vw]  w-[53vw] columns-4 gap-2 animate-marquee-vertical">
+      <div className="p-1 animate-fadeIn">
           {imgs.map((img, index)=>(
-            <img key={index} src={img} alt="" loading="eager" className="w-full mb-4 rounded-md" />
+            <img key={index} src={img} alt="" loading="eager" className="w-full mb-4 rounded-md " />
           ))}
        </div>
       </div>
