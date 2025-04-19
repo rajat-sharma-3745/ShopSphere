@@ -239,9 +239,9 @@ function Register() {
     //   </div>
     // </div>
     
-    <div className="flex min-h-screen w-screen">
+    <div className="flex md:min-h-screen w-screen">
       <div className="fixed -z-1 inset-0" style={{background: 'linear-gradient(rgb(119, 198, 248) 0%, rgb(255, 255, 255) 50%)'}}></div>
-      <div className="w-full md:w-1/2 static md:absolute h-full flex justify-center items-center p-6 md:p-12 ">
+      <div className="w-full md:w-1/2 flex justify-center items-center p-6 md:p-12 ">
          <form
            onSubmit={handleSubmit}
            className="w-full max-w-md bg-white p-4 rounded-lg border border-gray-300 shadow-xl"
@@ -333,7 +333,7 @@ function Register() {
            </p>
          </form>
       </div>
-      <div className="hidden md:block fixed right-0 top-0 origin-top-right -rotate-[15deg] scale-105 translate-y-[-11vw]  w-[55vw] columns-4 gap-2 animate-marquee-vertical">
+      <div className="hidden md:block fixed right-0 top-0 origin-top-right -rotate-[15deg] scale-105 translate-y-[-12vw]  w-[53vw] columns-4 gap-2 animate-marquee-vertical">
       <div className="p-1">
           {imgs.map((img, index)=>(
             <img key={index} src={img} alt="" className="w-full mb-4 rounded-md" />
