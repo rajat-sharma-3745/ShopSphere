@@ -61,6 +61,41 @@ function OrderAndProductManagementShimmer({ name }) {
               <td className="w-60"></td>
               <td className="w-60"></td>
             </tr>
+            <tr className="h-15 bg-gray-200  ">
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+            </tr>
+            <tr className="h-15 bg-gray-200  ">
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+            </tr>
+            <tr className="h-15 bg-gray-200  ">
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+            </tr>
+            <tr className="h-15 bg-gray-200  ">
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+            </tr>
+            <tr className="h-15 bg-gray-200  ">
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+              <td className="w-60"></td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -46,7 +46,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://res.cloudinary.com/rajat-sharma/image/upload/v1743476973/oecnmahsuduhrehjcxpu.jpg",
+        url: "https://res.cloudinary.com/rajat-sharma/image/upload/v1745119004/amntdmpfgspjlv5tx4n8.webp",
         altText: "Slim-Fit Stretch Shirt Front View",
       },
       {
