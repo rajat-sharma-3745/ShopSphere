@@ -1,7 +1,7 @@
 import React from 'react'
 import heroImg from '../../assets/rabbit-hero.webp'
 import mobileHero from '../../assets/mobileHero.jpg'
-import hero from '../../assets/hero.jpg'
+import hero from '../../assets/hero.png'
 import { Link } from 'react-router-dom'
 
 function Hero() {
