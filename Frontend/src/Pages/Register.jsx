@@ -247,7 +247,9 @@ function Register() {
            className="w-full max-w-md bg-white p-4 rounded-lg border border-gray-300 shadow-xl"
          >
            <div className="flex justify-center sm:mb-3 mb-2">
+            <Link to='/'>
              <h2 className="text-xl font-medium">ShopSphere</h2>
+             </Link>
            </div>
            <h2 className="text-2xl font-bold text-center sm:mb-3 mb-2">
              Hey there! 👋

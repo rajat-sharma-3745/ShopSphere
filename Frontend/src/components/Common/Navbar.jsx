@@ -60,7 +60,7 @@ function Navbar() {
           )}
            
             <Link to='/profile' className='hover:text-black'> <HiOutlineUser className='h-6 w-6 text-gray-700'/> </Link>
-            <button onClick={toggleCartDrawer} className='relative hover:text-black'>
+            <button onClick={toggleCartDrawer} className='relative hover:text-black cursor-pointer'>
                 <HiOutlineShoppingBag className='w-6 h-6 text-gray-700  sm:mr-0'/>
                 {cartItemCount>0 && (
                   <span className='absolute -top-1 bg-rabbit-red text-white text-xs rounded-full sm:px-2 px-1.5 py-0.5'>{cartItemCount}</span>

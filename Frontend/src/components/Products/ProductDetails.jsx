@@ -209,7 +209,7 @@ function ProductDetails({ productId }) {
                     <button
                       key={color}
                       onClick={() => setSelectedColor(color)}
-                      className={`w-8 h-8 rounded-full border ${
+                      className={`w-8 h-8 rounded-full border cursor-pointer ${
                         selectedColor === color
                           ? "border-5 border-black"
                           : "border-gray-300"
@@ -229,7 +229,7 @@ function ProductDetails({ productId }) {
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`px-4 py-2 rounded border border-gray-400 ${
+                      className={`px-4 py-2 rounded border border-gray-400 cursor-pointer ${
                         selectedSize === size ? "text-white bg-black" : ""
                       }`}
                     >
@@ -243,14 +243,14 @@ function ProductDetails({ productId }) {
                 <div className="flex items-center space-x-4 mt-2">
                   <button
                     onClick={() => handleQuantityChange("minus")}
-                    className="px-2 py-1 bg-gray-200 rounded text-lg"
+                    className="px-2 py-1 bg-gray-200 rounded text-lg cursor-pointer"
                   >
                     -
                   </button>
                   <span className="text-lg">{quantity}</span>
                   <button
                     onClick={() => handleQuantityChange("plus")}
-                    className="px-2 py-1 bg-gray-200 rounded text-lg"
+                    className="px-2 py-1 bg-gray-200 rounded text-lg cursor-pointer"
                   >
                     +
                   </button>
@@ -259,7 +259,7 @@ function ProductDetails({ productId }) {
               <button
                 onClick={handleAddToCart}
                 disabled={isButtonDisabled}
-                className={`bg-black text-white py-2 px-6 rounded w-full sm:mb-4 ${
+                className={`bg-black text-white py-2 px-6 rounded w-full sm:mb-4 cursor-pointer ${
                   isButtonDisabled
                     ? "cursor-not-allowed bg-black/50"
                     : "hover:bg-gray-900"

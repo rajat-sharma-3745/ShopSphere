@@ -36,7 +36,7 @@ function ProductGrid({ products, loading, error }) {
             </div>
             <div className="flex items-center justify-between">
             <h3 className="text-sm ">{product.name}</h3>
-            <p className="text-sm tracking-tighter font-medium text-gray-500">
+            <p className="text-sm tracking-tighter font-semibold text-gray-700">
               ${product.price}
             </p>
             </div>

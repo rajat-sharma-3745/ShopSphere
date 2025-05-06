@@ -34,7 +34,7 @@ function SearchBar() {
           <HiMiniXMark className='h-6 w-6'/>
         </button>
       </form>):
-      <button onClick={()=>setIsOpen(p=>!p)}>
+      <button onClick={()=>setIsOpen(p=>!p)} className='cursor-pointer'>
         <HiMagnifyingGlass className='h-6 w-6'/>
       </button>
       }
