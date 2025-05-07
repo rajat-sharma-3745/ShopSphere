@@ -307,13 +307,13 @@ function Register() {
                <button
                  type="button"
                  onClick={() => setShowPassword((p) => !p)}
-                 className="absolute right-2 top-2 text-black"
+                 className="absolute right-2 top-2 text-black cursor-pointer"
                >
                  {" "}
                  {!showPassword ? (
-                   <AiOutlineEye size={25} />
-                 ) : (
                    <AiOutlineEyeInvisible size={25} />
+                 ) : (
+                   <AiOutlineEye size={25} />
                  )}{" "}
                </button>{" "}
              </div>
