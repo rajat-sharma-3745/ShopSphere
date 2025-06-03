@@ -76,7 +76,7 @@ function Home() {
       limit:8
 
     }))
-    if(user) dispatch(fetchCart({userId:user,guestId}))
+
     
     // fetch Best Seller product
     const fetchBestSeller =async()=>{
