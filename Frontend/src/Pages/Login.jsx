@@ -4,7 +4,7 @@ import login from '../assets/login.webp'
 import login2 from '../assets/login2.jpg'
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser} from '../redux/slice/authSlice'
-import { mergeCart } from '../redux/slice/cartSlice';
+import { fetchCart, mergeCart } from '../redux/slice/cartSlice';
 import { AiFillEye, AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { toast } from 'sonner';
 
@@ -26,6 +26,7 @@ function Login() {
   useEffect(()=>{
  
     if(user){
+        dispatch(fetchCart({userId:user,guestId}))
         toast.success(<b>Logged in successfully</b>,{duration:2000})
         if(cart?.products.length>0 && guestId){
             dispatch(mergeCart({user,guestId})).then(()=>{

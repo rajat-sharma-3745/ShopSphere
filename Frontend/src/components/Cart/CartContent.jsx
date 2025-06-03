@@ -67,7 +67,7 @@ function CartContent({cart,userId,guestId}) {
                     <div className='flex flex-col items-center justify-center'>
                         <p>$ {product.price.toLocaleString()}</p>
                          {/* Delete */}
-                        <button className='cursor-pointer' onClick={()=>handleRemoveFromCart(product.productId,product.size,product.color,guestId,userId)}>
+                        <button className='cursor-pointer self-end' onClick={()=>handleRemoveFromCart(product.productId,product.size,product.color,guestId,userId)}>
                             <RiDeleteBin3Line className='h-6 w-6 mt-2 text-red-600'/>
                         </button>
                     </div>

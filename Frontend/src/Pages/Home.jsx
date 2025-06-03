@@ -10,6 +10,7 @@ import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
 import { fetchProductsByFilters } from '../redux/slice/productsSlice'
 import SlidingBanner from '../components/Layout/SlidingBanner'
+import { fetchCart } from '../redux/slice/cartSlice'
 // const placeholderProducts = [
 //   {
 //     _id: 1,
@@ -64,6 +65,8 @@ import SlidingBanner from '../components/Layout/SlidingBanner'
 function Home() {
   const dispatch = useDispatch();
   const {products ,loading,error} = useSelector((state)=>state.products);
+    const {user,guestId,isLoading} = useSelector((state)=>state.auth);
+  
   const [bestSellerProduct,setBestSellerProduct] = useState(null);
   useEffect(()=>{
     // Fetch products for a specific collection
@@ -73,6 +76,8 @@ function Home() {
       limit:8
 
     }))
+    if(user) dispatch(fetchCart({userId:user,guestId}))
+    
     // fetch Best Seller product
     const fetchBestSeller =async()=>{
       try {
