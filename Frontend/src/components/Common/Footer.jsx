@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 function Footer() {
   return (
     <footer className='border-t border-gray-300 py-12 lg:px-14 px-2 '>
-        <div className='container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 px-4 lg:px-0 md:place-items-center'>
+        <div className='container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4 lg:px-0 md:place-items-center'>
             <div>
                  <h3 className='text-lg text-gray-800 mb-4'>Newsletter</h3>
                  <p className='text-gray-500 mb-4'>
@@ -28,22 +28,22 @@ function Footer() {
                <h3 className='text-lg text-gray-800 mb-4 '>Shop</h3>
                <ul className='space-y-2 text-gray-600'>
                 <li>
-                    <Link to="#" className='hover:text-gray-500'>Men's Top Wear</Link>
+                    <Link to="/collections/all?gender=Men&category=Top+Wear" className='hover:text-gray-500'>Men's Top Wear</Link>
                 </li>
                 <li>
-                    <Link to="#" className='hover:text-gray-500'>Women's Top Wear</Link>
+                    <Link to="/collections/all?gender=Women&category=Top+Wear" className='hover:text-gray-500'>Women's Top Wear</Link>
                 </li>
                 <li>
-                    <Link to="#" className='hover:text-gray-500'>Men's Bottom Wear</Link>
+                    <Link to="/collections/all?gender=Men&category=Bottom+Wear" className='hover:text-gray-500'>Men's Bottom Wear</Link>
                 </li>
                 <li>
-                    <Link to="#" className='hover:text-gray-500'>Women's Bottom Wear</Link>
+                    <Link to="/collections/all?gender=Women&category=Bottom+Wear" className='hover:text-gray-500'>Women's Bottom Wear</Link>
                 </li>
 
                </ul>
             </div>
             {/* support links */}
-            <div>
+            {/* <div>
                <h3 className='text-lg text-gray-800 mb-4 '>Support</h3>
                <ul className='space-y-2 text-gray-600'>
                 <li>
@@ -60,7 +60,7 @@ function Footer() {
                 </li>
 
                </ul>
-            </div>
+            </div> */}
             {/*Follow us  */}
             <div>
                 <h3 className='text-lg text-gray-800 mb-4 '>Follow Us</h3>
