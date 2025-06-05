@@ -78,7 +78,7 @@ function Footer() {
         </div>
        {/* Footer Bottom */}
        <div className='container mx-auto mt-12 px-4 lg:px-0 pt-6 border-t border-gray-200'>
-          <p className='text-gray-500 text-center text-sm tracking-tighter'>©2025, ABC. All Rights Reserved.</p>
+          <p className='text-gray-500 text-center text-sm tracking-tighter'>©2025, ShopSphere. All Rights Reserved.</p>
        </div>
     </footer>
   )
