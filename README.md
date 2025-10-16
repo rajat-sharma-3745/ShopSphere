@@ -88,4 +88,3 @@ Below are a few screenshots from the live deployed site:
    npm install  
    cd ../backend
    npm install
-  ```
