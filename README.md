@@ -62,10 +62,9 @@ Live version is deployed at [shop-sphere-sable.vercel.app](https://shop-sphere-s
 Below are a few screenshots from the live deployed site:
 
 <!-- Replace these with your actual images from your `/assets` or `screenshots` folder -->
-![Homepage](./screenshots/homepage.png)  
-![Product Listing](./screenshots/product-listing.png)  
-![Product Detail](./screenshots/product-detail.png)  
-![Cart / Checkout](./screenshots/cart.png)  
+![Homepage](./screenshots/Home.png)  
+![Product Detail](./screenshots/Product.png)  
+![Cart / Checkout](./screenshots/Cart.png)  
 
 ---
 
