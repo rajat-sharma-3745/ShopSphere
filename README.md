@@ -78,8 +78,6 @@ Below are a few screenshots from the live deployed site:
 - (Optional) .env file with proper credentials  
 
 ### Installation
-
-1. Clone the repo  
    ```bash
    git clone https://github.com/rajat-sharma-3745/ShopSphere.git
    cd ShopSphere
