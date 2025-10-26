@@ -1,6 +1,6 @@
 # ShopSphere
 
-**Live Demo:** [shop-sphere-sable.vercel.app](https://shop-sphere-sable.vercel.app)  
+**Live Demo:** [shop-sphere](https://github.com/rajat-sharma-3745)  
 
 An e-commerce clothing web app built with full stack components.
 
