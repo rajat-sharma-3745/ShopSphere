@@ -7,43 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { mergeCart } from "../redux/slice/cartSlice";
 import { AiFillEye, AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { toast } from "sonner";
-import a1 from '../slider images/1.webp'
-import a2 from '../slider images/2.webp'
-import a3 from '../slider images/3.webp'
-import a4 from '../slider images/4.webp'
-import a5 from '../slider images/5.webp'
-import a6 from '../slider images/6.webp'
-import a7 from '../slider images/7.webp'
-import a8 from '../slider images/8.webp'
-import a9 from '../slider images/9.webp'
-import a10 from '../slider images/10.webp'
-import a11 from '../slider images/11.webp'
-import a12 from '../slider images/12.jpg'
-import a13 from '../slider images/13.webp'
-import a14 from '../slider images/14.webp'
-import a15 from '../slider images/15.webp'
-import a16 from '../slider images/16.webp'
-import a17 from '../slider images/17.webp'
-import a18 from '../slider images/18.webp'
-import a19 from '../slider images/19.webp'
-import a20 from '../slider images/20.webp'
-import a21 from '../slider images/21.webp'
-import a22 from '../slider images/22.webp'
-import a23 from '../slider images/23.webp'
-import a24 from '../slider images/24.webp'
-import a25 from '../slider images/25.webp'
-import a26 from '../slider images/26.webp'
-import a27 from '../slider images/27.jpg'
-import a28 from '../slider images/28.webp'
-import a29 from '../slider images/29.webp'
-import a30 from '../slider images/30.webp'
-import a31 from '../slider images/31.webp'
-import a32 from '../slider images/32.webp'
-import a33 from '../slider images/33.webp'
-import a34 from '../slider images/34.webp'
-import a35 from '../slider images/35.webp'
-import a36 from '../slider images/36.webp'
-import a37 from '../slider images/37.webp'
+import { a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24,a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37 } from "../assets/assets";
+
 
 
 function Register() {
