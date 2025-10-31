@@ -20,7 +20,7 @@ An e-commerce clothing web app built with full stack components.
 
 ## About
 
-ShopSphere is a modern, responsive e-commerce clothing application. It features product browsing, categories, user authentication, cart & checkout flows, admin dashboards (if any), and more.
+ShopSphere is a modern, responsive e-commerce clothing application. It features product browsing, categories, user authentication, cart & checkout flows, admin dashboards.
 
 This repository contains two main parts:
 
